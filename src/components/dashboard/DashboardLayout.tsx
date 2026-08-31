@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Sidebar } from "./Sidebar";
 import { DashboardHeader } from "./DashboardHeader";
+import { SecurityVisuals } from "./SecurityVisuals";
 import { cn } from "@/lib/utils";
 import { useRole, type RoleId } from "@/context/RoleContext";
 
@@ -23,20 +24,18 @@ export function DashboardLayout({
   const activeRole = (userRole as RoleId) || role;
   const activeTitle = title || dashboardTitle;
   const activeUserName = userName || user.name;
+  const isMainDashboard = activeTitle === dashboardTitle;
 
   return (
     <div className="flex min-h-screen bg-background text-foreground selection:bg-primary/20 selection:text-primary">
-      {/* Sidebar */}
       <Sidebar open={sidebarOpen} onOpenChange={setSidebarOpen} userRole={activeRole} />
 
-      {/* Main content area */}
       <div className="flex flex-1 flex-col overflow-hidden min-w-0">
-        {/* Header */}
         <DashboardHeader title={activeTitle} userRole={activeRole} userName={activeUserName} />
 
-        {/* Main Content Viewport */}
         <main className={cn("flex-1 overflow-y-auto px-4 py-6 sm:px-6 lg:px-8 max-w-7xl w-full mx-auto space-y-6")}>
           {children}
+          {isMainDashboard && <SecurityVisuals />}
         </main>
       </div>
     </div>
