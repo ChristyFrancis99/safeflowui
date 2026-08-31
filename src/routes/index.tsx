@@ -14,7 +14,6 @@ import { Navbar } from "@/components/landing/Navbar";
 import { ProblemSection } from "@/components/landing/ProblemSection";
 import { ReportSection } from "@/components/landing/ReportSection";
 import { RiskIntelligence } from "@/components/landing/RiskIntelligence";
-import { ThreatWatch } from "@/components/landing/ThreatWatch";
 import { TrustBar } from "@/components/landing/TrustBar";
 
 export const Route = createFileRoute("/")({
@@ -39,7 +38,6 @@ function Index() {
         <InvestigationFlow />
         <ReportSection />
         <HumanDecisionSection />
-        <ThreatWatch />
         <FAQSection />
         <FinalCTA />
       </main>
