@@ -5,7 +5,6 @@ import { ExplainabilitySection } from "@/components/landing/ExplainabilitySectio
 import { FAQSection } from "@/components/landing/FAQSection";
 import { FinalCTA } from "@/components/landing/FinalCTA";
 import { Footer } from "@/components/landing/Footer";
-import { GraphSection } from "@/components/landing/GraphSection";
 import { HeroSection } from "@/components/landing/HeroSection";
 import { HumanDecisionSection } from "@/components/landing/HumanDecisionSection";
 import { InvestigationFlow } from "@/components/landing/InvestigationFlow";
@@ -33,7 +32,6 @@ function Index() {
         <AgentArchitecture />
         <RiskIntelligence />
         <ExplainabilitySection />
-        <GraphSection />
         <ComplianceSection />
         <InvestigationFlow />
         <ReportSection />
