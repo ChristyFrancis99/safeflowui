@@ -1,0 +1,75 @@
+.gov-dashboard {
+  --violet: oklch(0.46 0.16 255);
+  --gov: oklch(0.38 0.11 255);
+  --deep: oklch(0.24 0.05 255);
+  --navy: oklch(0.18 0.035 255);
+  --lavender: oklch(0.96 0.01 255);
+  --teal: oklch(0.48 0.08 180);
+  --offwhite: oklch(0.985 0.002 255);
+  --background: var(--offwhite);
+  --foreground: var(--navy);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--navy);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--navy);
+  --primary: var(--violet);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: var(--lavender);
+  --secondary-foreground: var(--deep);
+  --muted: oklch(0.965 0.003 255);
+  --muted-foreground: oklch(0.45 0.018 255);
+  --accent: var(--lavender);
+  --accent-foreground: var(--gov);
+  --border: oklch(0.82 0.012 255);
+  --input: oklch(0.82 0.012 255);
+  --ring: var(--violet);
+  --sidebar: oklch(1 0 0);
+  --sidebar-foreground: var(--navy);
+  --sidebar-primary: var(--violet);
+  --sidebar-accent: var(--lavender);
+  --sidebar-border: oklch(0.82 0.012 255);
+}
+
+.gov-dashboard .rounded-full {
+  border-radius: 999px;
+}
+
+.gov-dashboard .rounded-4xl,
+.gov-dashboard .rounded-3xl,
+.gov-dashboard .rounded-2xl,
+.gov-dashboard .rounded-xl,
+.gov-dashboard .rounded-lg,
+.gov-dashboard .rounded-md,
+.gov-dashboard .rounded-sm {
+  border-radius: 6px;
+}
+
+.gov-dashboard .shadow-xs,
+.gov-dashboard .shadow-2xs,
+.gov-dashboard .shadow-sm,
+.gov-dashboard .shadow-md,
+.gov-dashboard .shadow-lg,
+.gov-dashboard .shadow-xl {
+  box-shadow: none;
+}
+
+.gov-dashboard [class*="bg-gradient"],
+.gov-dashboard [class*="from-"],
+.gov-dashboard [class*="via-"],
+.gov-dashboard [class*="to-"] {
+  background-image: none !important;
+}
+
+.gov-dashboard button,
+.gov-dashboard a {
+  transition-duration: 120ms;
+}
+
+.gov-dashboard .border-l-2 {
+  border-left-width: 3px;
+}
+
+.gov-dashboard table th {
+  font-family: var(--font-sans);
+  letter-spacing: 0.02em;
+}
