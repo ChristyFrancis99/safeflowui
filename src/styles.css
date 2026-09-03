@@ -138,33 +138,11 @@
 .surface-light,
 .bg-white,
 .bg-offwhite { background-color: #161b22 !important; color: #f0f6fc !important; border-color: #30363d !important; }
-.surface-light .text-foreground,
-.surface-light .text-white,
-.surface-light .text-black,
-.bg-white .text-foreground,
-.bg-white .text-white,
-.bg-white .text-black,
-.bg-offwhite .text-foreground,
-.bg-offwhite .text-white,
-.bg-offwhite .text-black { color: #f0f6fc !important; }
-.surface-light .text-muted-foreground,
-.bg-white .text-muted-foreground,
-.bg-offwhite .text-muted-foreground { color: #8b949e !important; }
-.surface-light .text-gov,
-.bg-white .text-gov,
-.bg-offwhite .text-gov { color: #8b949e !important; }
-.bg-black,
-.bg-gray-950,
-.bg-slate-950,
-.bg-zinc-950 { background-color: #0d1117 !important; }
-.text-black,
-.text-gray-950,
-.text-slate-950,
-.text-zinc-950 { color: #f0f6fc !important; }
-.border-black,
-.border-gray-950,
-.border-slate-950,
-.border-zinc-950 { border-color: #30363d !important; }
+.surface-light .text-foreground,.surface-light .text-white,.surface-light .text-black,.bg-white .text-foreground,.bg-white .text-white,.bg-white .text-black,.bg-offwhite .text-foreground,.bg-offwhite .text-white,.bg-offwhite .text-black { color: #f0f6fc !important; }
+.surface-light .text-muted-foreground,.bg-white .text-muted-foreground,.bg-offwhite .text-muted-foreground { color: #8b949e !important; }
+.bg-black,.bg-gray-950,.bg-slate-950,.bg-zinc-950 { background-color: #0d1117 !important; }
+.text-black,.text-gray-950,.text-slate-950,.text-zinc-950 { color: #f0f6fc !important; }
+.border-black,.border-gray-950,.border-slate-950,.border-zinc-950 { border-color: #30363d !important; }
 
 .text-violet { color: #8b5cf6 !important; }
 .bg-violet { background-color: #8b5cf6 !important; }
@@ -173,52 +151,31 @@
 .bg-teal { background-color: #14b8a6 !important; }
 .border-teal { border-color: #14b8a6 !important; }
 
-.text-risk-low { color: #22c55e !important; }
-.text-risk-medium { color: #eab308 !important; }
-.text-risk-high { color: #ef4444 !important; }
-.text-risk-critical { color: #dc2626 !important; }
-.bg-risk-low\/10 { background-color: rgb(34 197 94 / 0.10) !important; }
-.bg-risk-medium\/10 { background-color: rgb(234 179 8 / 0.10) !important; }
-.bg-risk-high\/10 { background-color: rgb(239 68 68 / 0.10) !important; }
-.bg-risk-critical\/10 { background-color: rgb(220 38 38 / 0.10) !important; }
-.border-risk-low\/20 { border-color: rgb(34 197 94 / 0.20) !important; }
-.border-risk-medium\/20 { border-color: rgb(234 179 8 / 0.20) !important; }
-.border-risk-high\/20 { border-color: rgb(239 68 68 / 0.20) !important; }
-.border-risk-critical\/20 { border-color: rgb(220 38 38 / 0.20) !important; }
+/* Strong, filled semantic risk pills. */
+.text-risk-low { color: #86efac !important; }
+.text-risk-medium { color: #fde047 !important; }
+.text-risk-high { color: #fca5a5 !important; }
+.text-risk-critical { color: #fecaca !important; }
+.bg-risk-low\/10 { background-color: rgb(34 197 94 / 0.20) !important; }
+.bg-risk-medium\/10 { background-color: rgb(234 179 8 / 0.20) !important; }
+.bg-risk-high\/10 { background-color: rgb(239 68 68 / 0.20) !important; }
+.bg-risk-critical\/10 { background-color: rgb(220 38 38 / 0.24) !important; }
+.border-risk-low\/20 { border-color: rgb(34 197 94 / 0.45) !important; }
+.border-risk-medium\/20 { border-color: rgb(234 179 8 / 0.45) !important; }
+.border-risk-high\/20 { border-color: rgb(239 68 68 / 0.45) !important; }
+.border-risk-critical\/20 { border-color: rgb(220 38 38 / 0.50) !important; }
 
-/* Risk-level pills: make HIGH / MEDIUM / LOW unmistakably visible in every dashboard table. */
-span.text-risk-low,
-span.text-risk-medium,
-span.text-risk-high,
-span.text-risk-critical {
-  display: inline-flex !important;
-  align-items: center;
-  justify-content: center;
-  min-width: 66px;
-  padding: 4px 9px !important;
-  border: 1px solid !important;
-  border-radius: 9999px !important;
-  font-size: 10px !important;
-  font-weight: 800 !important;
-  letter-spacing: 0.06em;
-  line-height: 1.2;
-}
-span.text-risk-low { background: rgb(34 197 94 / 0.16) !important; border-color: rgb(34 197 94 / 0.38) !important; }
-span.text-risk-medium { background: rgb(234 179 8 / 0.16) !important; border-color: rgb(234 179 8 / 0.42) !important; }
-span.text-risk-high { background: rgb(239 68 68 / 0.16) !important; border-color: rgb(239 68 68 / 0.42) !important; }
-span.text-risk-critical { background: rgb(220 38 38 / 0.20) !important; border-color: rgb(220 38 38 / 0.48) !important; }
-
-[class*="rounded-4xl"], [class*="rounded-3xl"], [class*="rounded-2xl"], [class*="rounded-xl"], [class*="rounded-lg"] { border-radius: 8px; }
+[class*="rounded-4xl"],[class*="rounded-3xl"],[class*="rounded-2xl"],[class*="rounded-xl"],[class*="rounded-lg"] { border-radius: 8px; }
 [class*="shadow-"] { box-shadow: none !important; }
-button, a { transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease; }
-button:hover, a:hover { filter: none; }
-input, textarea, select { background-color: #0d1117; border-color: #30363d; color: #f0f6fc; }
-input::placeholder, textarea::placeholder { color: #8b949e; }
-input:focus, textarea:focus, select:focus { border-color: #8b5cf6; outline: 2px solid #8b5cf633; outline-offset: 0; }
+button,a { transition: background-color 120ms ease,border-color 120ms ease,color 120ms ease; }
+button:hover,a:hover { filter: none; }
+input,textarea,select { background-color: #0d1117; border-color: #30363d; color: #f0f6fc; }
+input::placeholder,textarea::placeholder { color: #8b949e; }
+input:focus,textarea:focus,select:focus { border-color: #8b5cf6; outline: 2px solid #8b5cf633; outline-offset: 0; }
 
 @utility container-hz { width: 100%; max-width: 1280px; margin-inline: auto; padding-inline: 1.5rem; }
 @utility eyebrow { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.12em; text-transform: uppercase; }
 @keyframes hz-reveal { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 .hz-reveal { opacity: 0; }
 .hz-reveal.is-visible { animation: hz-reveal 0.5s ease forwards; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .hz-reveal, .hz-reveal.is-visible, .hz-pulse, .hz-dash, .hz-float { animation: none !important; opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .hz-reveal,.hz-reveal.is-visible,.hz-pulse,.hz-dash,.hz-float { animation: none !important; opacity: 1; } }
