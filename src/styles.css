@@ -67,29 +67,36 @@
 :root {
   color-scheme: dark;
   --radius: 0.5rem;
-  --navy: #ffffff;
-  --deep: #ffffff;
+
+  /* Original SafeFlow dark palette */
+  --navy: #4e1f6e;
+  --deep: #4e1f6e;
   --gov: #4e1f6e;
   --violet: #4c4b9a;
   --lavender: #2a1935;
   --teal: #4c4b9a;
   --offwhite: #ffffff;
+
+  /* Risk states use the same two brand accents. */
   --risk-low: #4c4b9a;
   --risk-medium: #4c4b9a;
   --risk-high: #4e1f6e;
   --risk-critical: #4e1f6e;
+
+  /* Dark page / light content-surface system */
   --background: #120b18;
   --foreground: #ffffff;
-  --card: #1c1025;
-  --card-foreground: #ffffff;
-  --popover: #1c1025;
-  --popover-foreground: #ffffff;
-  --primary: #4c4b9a;
+  --card: #ffffff;
+  --card-foreground: #4e1f6e;
+  --popover: #ffffff;
+  --popover-foreground: #4e1f6e;
+
+  --primary: #4e1f6e;
   --primary-foreground: #ffffff;
-  --secondary: #2a1935;
+  --secondary: #4c4b9a;
   --secondary-foreground: #ffffff;
-  --muted: #21152a;
-  --muted-foreground: #c9b9d3;
+  --muted: #2a1935;
+  --muted-foreground: #d8cde0;
   --accent: #2a1935;
   --accent-foreground: #ffffff;
   --destructive: #4e1f6e;
@@ -98,24 +105,29 @@
   --input: #553a60;
   --ring: #4c4b9a;
   --overlay: #000000bf;
-  --section-emphasis: #1c1025;
-  --section-emphasis-foreground: #ffffff;
-  --section-emphasis-muted: #c9b9d3;
-  --section-emphasis-border: #ffffff1f;
-  --section-emphasis-surface: #ffffff0d;
+
+  /* Light cards always use dark readable text. */
+  --section-emphasis: #ffffff;
+  --section-emphasis-foreground: #4e1f6e;
+  --section-emphasis-muted: #665c70;
+  --section-emphasis-border: #ded5e5;
+  --section-emphasis-surface: #f7f4f9;
   --section-emphasis-accent: #4c4b9a;
+
   --gradient-hero: none;
   --gradient-cta: none;
   --shadow-card: 0 1px 2px #00000047;
   --shadow-float: 0 12px 32px -20px #00000073;
+
   --chart-1: #4e1f6e;
   --chart-2: #4c4b9a;
   --chart-3: #ffffff;
   --chart-4: #4c4b9a;
   --chart-5: #4e1f6e;
+
   --sidebar: #160d1e;
   --sidebar-foreground: #ffffff;
-  --sidebar-primary: #4c4b9a;
+  --sidebar-primary: #4e1f6e;
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: #2a1935;
   --sidebar-accent-foreground: #ffffff;
@@ -125,20 +137,30 @@
 
 @layer base {
   * { border-color: var(--color-border); }
-  html { color-scheme: dark; scroll-behavior: smooth; background: var(--color-background); }
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+    background: var(--color-background);
+  }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     -webkit-font-smoothing: antialiased;
   }
+
+  /* Explicitly keep text dark whenever a surface is light. */
+  .bg-white,
+  [class*="bg-white/"] {
+    color: #4e1f6e;
+  }
+
+  .bg-white .text-foreground,
+  [class*="bg-white/"] .text-foreground {
+    color: #4e1f6e !important;
+  }
 }
 
-/* Permanent dark-mode normalization for legacy hard-coded utility classes. */
-.bg-white,
-[class*="bg-white/"] {
-  background-color: var(--color-card) !important;
-}
-
+/* Normalize legacy utilities without changing light content surfaces. */
 .bg-black,
 .bg-gray-950,
 .bg-slate-950,
@@ -160,11 +182,22 @@
   border-color: var(--color-border) !important;
 }
 
-.text-violet { color: var(--color-teal) !important; }
-.bg-violet { background-color: var(--color-primary) !important; }
-.border-violet { border-color: var(--color-ring) !important; }
+.text-violet {
+  color: var(--color-teal) !important;
+}
+
+.bg-violet {
+  background-color: var(--color-primary) !important;
+}
+
+.border-violet {
+  border-color: var(--color-ring) !important;
+}
+
 .text-risk-high,
-.text-risk-critical { color: var(--color-teal) !important; }
+.text-risk-critical {
+  color: var(--color-teal) !important;
+}
 
 @utility container-hz {
   width: 100%;
