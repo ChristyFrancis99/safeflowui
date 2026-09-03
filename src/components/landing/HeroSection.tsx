@@ -50,7 +50,7 @@ export function HeroSection() {
               <img
                 src="/pay-safe-stay-secure.png"
                 alt="Pay Safe Stay Secure"
-                className="max-h-[360px] w-auto max-w-full object-contain"
+                className="max-h-[500px] w-auto max-w-none object-contain [mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.35)_20%,black_50%,black_100%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.35)_20%,black_50%,black_100%)]"
               />
             </div>
           </Reveal>
