@@ -46,15 +46,12 @@ export function HeroSection() {
           </div>
 
           <Reveal delay={180}>
-            <div className="relative mx-auto flex min-h-[340px] w-full max-w-[620px] items-center justify-center">
-              <div className="absolute inset-10 rounded-full border border-primary/20 bg-primary/5 blur-2xl" aria-hidden />
-              <div className="relative flex min-h-[340px] w-full items-center justify-center overflow-hidden rounded-2xl border border-border bg-card/40 p-6">
-                <img
-                  src="/pay-safe-stay-secure.png"
-                  alt="Pay Safe Stay Secure"
-                  className="relative z-10 max-h-[330px] w-auto max-w-full object-contain drop-shadow-[0_0_40px_rgba(124,58,237,0.18)]"
-                />
-              </div>
+            <div className="relative mx-auto flex min-h-[340px] w-full max-w-[620px] items-center justify-center overflow-hidden">
+              <img
+                src="/pay-safe-stay-secure.png"
+                alt="Pay Safe Stay Secure"
+                className="max-h-[360px] w-auto max-w-full object-contain"
+              />
             </div>
           </Reveal>
         </div>
