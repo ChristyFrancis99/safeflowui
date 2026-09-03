@@ -16,7 +16,7 @@ export function ThemeToggle({ className, compact = false }: ThemeToggleProps) {
       type="button"
       onClick={toggleTheme}
       className={cn(
-        "inline-flex items-center justify-center rounded-xl border border-border bg-card text-foreground transition-colors duration-150",
+        "inline-flex items-center justify-center rounded-md border border-border bg-card text-foreground transition-colors duration-150",
         "hover:bg-muted/60",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
         compact ? "size-9 p-0" : "gap-1.5 px-3 py-1.5 text-xs font-semibold",
