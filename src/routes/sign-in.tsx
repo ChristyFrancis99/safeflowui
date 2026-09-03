@@ -1,8 +1,7 @@
 import { createFileRoute, useNavigate, Link } from "@tanstack/react-router";
-import { ArrowRight, LockKeyhole, AlertCircle, Info, ShieldCheck } from "lucide-react";
+import { ArrowRight, LockKeyhole, AlertCircle, Info } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Mono } from "@/components/landing/shared";
 import { type RoleId, useRole } from "@/context/RoleContext";
 import { Logo } from "@/components/Logo";
 
@@ -29,12 +28,12 @@ function SignInPage() {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [generalError, setGeneralError] = useState("");
-  const [infoNotice, setInfoNotice] = useState("Enter your work credentials. Safe Flow will identify your authorized role automatically.");
+  const [infoNotice, setInfoNotice] = useState("");
   const [isAnalyzing, setIsAnalyzing] = useState(false);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setEmailError(""); setPasswordError(""); setGeneralError("");
+    setEmailError(""); setPasswordError(""); setGeneralError(""); setInfoNotice("");
     const normalizedEmail = email.trim().toLowerCase();
     let hasError = false;
     if (!normalizedEmail) { setEmailError("Work email is required."); hasError = true; }
@@ -43,29 +42,20 @@ function SignInPage() {
     if (hasError) return;
 
     setIsAnalyzing(true);
-    setInfoNotice("Analyzing credentials and identifying your authorized workspace…");
     await new Promise((resolve) => setTimeout(resolve, 650));
-
     const account = DEMO_ACCOUNTS.find((candidate) => candidate.email === normalizedEmail && candidate.password === password);
     setIsAnalyzing(false);
 
     if (!account) {
       const knownEmail = DEMO_ACCOUNTS.some((candidate) => candidate.email === normalizedEmail);
       setGeneralError(knownEmail ? "Credentials were not accepted. Please check your password and try again." : "Unknown user. This account is not authorized for the Safe Flow workspace.");
-      setInfoNotice("Access denied. Only registered Investigator, Manager, or Administrator accounts can enter the workspace.");
       return;
     }
 
-    setInfoNotice(`Identity verified. ${account.label} workspace detected. Redirecting…`);
+    setInfoNotice(`Identity verified. ${account.label} workspace detected.`);
     setRole(account.role);
     await new Promise((resolve) => setTimeout(resolve, 300));
     navigate({ to: "/dashboard" });
-  };
-
-  const handleForgotPassword = (event: React.MouseEvent) => {
-    event.preventDefault();
-    setGeneralError("");
-    setInfoNotice("Demo mode: password reset is simulated. No email is sent.");
   };
 
   return (
@@ -76,39 +66,18 @@ function SignInPage() {
             <img src="/login.png" alt="Safe Flow security workspace" className="absolute inset-0 h-full w-full object-cover" />
             <div className="absolute inset-0 bg-black/20" />
           </div>
-
           <div className="flex flex-col justify-center bg-background px-4 py-8 sm:px-6 lg:px-10 xl:px-14">
             <div className="mx-auto w-full max-w-md">
               <div className="mb-6 flex items-center justify-between gap-3 lg:hidden"><Logo size="md" rounded="lg" /><Link to="/" className="text-sm font-medium text-muted-foreground hover:text-foreground">Back to home</Link></div>
-              <div className="hidden items-center justify-between gap-3 border-b border-border pb-5 lg:flex"><div><p className="text-sm font-semibold tracking-[0.16em] text-foreground">Safe Flow</p><Mono className="mt-1 text-muted-foreground">Digital Investigator</Mono></div><Link to="/" className="text-sm font-medium text-muted-foreground hover:text-foreground">Back to home</Link></div>
-
-              <div className="mt-8">
-                <div className="flex items-center gap-2 text-violet"><ShieldCheck className="size-5" /><Mono>ROLE DETECTION</Mono></div>
-                <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground">Welcome back.</h2>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Sign in with your credentials. Your authorized role will be detected automatically.</p>
-              </div>
-
-              {generalError && <div className="mt-4 flex items-start gap-2 rounded-xl border border-risk-high/30 bg-risk-high/10 p-3 text-xs text-risk-high"><AlertCircle className="mt-0.5 size-4 shrink-0" /><span>{generalError}</span></div>}
-              {infoNotice && <div className="mt-4 flex items-start gap-2 rounded-xl border border-violet/30 bg-violet/10 p-3 text-xs text-violet"><Info className="mt-0.5 size-4 shrink-0" /><span>{infoNotice}</span></div>}
-
-              <form className="mt-6 space-y-5" onSubmit={handleSubmit} noValidate>
-                <div className="space-y-1.5">
-                  <label htmlFor="email" className="text-sm font-medium text-foreground">Work Email</label>
-                  <input id="email" type="email" autoComplete="username" value={email} onChange={(event) => { setEmail(event.target.value); if (emailError) setEmailError(""); if (generalError) setGeneralError(""); }} placeholder="name@company.com" className={`w-full rounded-xl border bg-background px-3.5 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:ring-2 focus:ring-violet/20 ${emailError ? "border-risk-high focus:border-risk-high" : "border-border focus:border-violet/50"}`} />
-                  {emailError && <p className="text-xs text-risk-high">{emailError}</p>}
-                </div>
-
-                <div className="space-y-1.5">
-                  <div className="flex items-center justify-between gap-3"><label htmlFor="password" className="text-sm font-medium text-foreground">Password</label><button type="button" onClick={handleForgotPassword} className="text-sm font-medium text-violet hover:text-foreground focus:outline-none">Forgot password?</button></div>
-                  <div className="relative"><input id="password" type="password" autoComplete="current-password" value={password} onChange={(event) => { setPassword(event.target.value); if (passwordError) setPasswordError(""); if (generalError) setGeneralError(""); }} placeholder="Enter your password" className={`w-full rounded-xl border bg-background px-3.5 py-3 pr-10 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:ring-2 focus:ring-violet/20 ${passwordError ? "border-risk-high focus:border-risk-high" : "border-border focus:border-violet/50"}`} /><LockKeyhole className="pointer-events-none absolute top-1/2 right-3 size-4 -translate-y-1/2 text-muted-foreground" aria-hidden /></div>
-                  {passwordError && <p className="text-xs text-risk-high">{passwordError}</p>}
-                </div>
-
-                <Button type="submit" className="w-full rounded-xl" size="lg" disabled={isAnalyzing}>{isAnalyzing ? "Analyzing credentials…" : "Sign In"}{!isAnalyzing && <ArrowRight className="size-4" />}</Button>
+              <div className="hidden items-center justify-between gap-3 border-b border-border pb-5 lg:flex"><div><p className="text-sm font-semibold tracking-[0.16em] text-foreground">Safe Flow</p><p className="mt-1 font-mono text-xs text-muted-foreground">Digital Investigator</p></div><Link to="/" className="text-sm font-medium text-muted-foreground hover:text-foreground">Back to home</Link></div>
+              <div className="mt-8"><h2 className="text-3xl font-semibold tracking-tight text-foreground">Welcome back</h2></div>
+              {generalError && <div className="mt-5 flex items-start gap-2 rounded-xl border border-risk-high/30 bg-risk-high/10 p-3 text-xs text-risk-high"><AlertCircle className="mt-0.5 size-4 shrink-0" /><span>{generalError}</span></div>}
+              {infoNotice && <div className="mt-5 flex items-start gap-2 rounded-xl border border-violet/30 bg-violet/10 p-3 text-xs text-violet"><Info className="mt-0.5 size-4 shrink-0" /><span>{infoNotice}</span></div>}
+              <form className="mt-7 space-y-5" onSubmit={handleSubmit} noValidate>
+                <div className="space-y-1.5"><label htmlFor="email" className="text-sm font-medium text-foreground">Email</label><input id="email" type="email" autoComplete="username" value={email} onChange={(event) => { setEmail(event.target.value); setEmailError(""); setGeneralError(""); }} placeholder="name@company.com" className={`w-full rounded-xl border bg-background px-3.5 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:ring-2 focus:ring-violet/20 ${emailError ? "border-risk-high focus:border-risk-high" : "border-border focus:border-violet/50"}`} />{emailError && <p className="text-xs text-risk-high">{emailError}</p>}</div>
+                <div className="space-y-1.5"><label htmlFor="password" className="text-sm font-medium text-foreground">Password</label><div className="relative"><input id="password" type="password" autoComplete="current-password" value={password} onChange={(event) => { setPassword(event.target.value); setPasswordError(""); setGeneralError(""); }} placeholder="Enter your password" className={`w-full rounded-xl border bg-background px-3.5 py-3 pr-10 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:ring-2 focus:ring-violet/20 ${passwordError ? "border-risk-high focus:border-risk-high" : "border-border focus:border-violet/50"}`} /><LockKeyhole className="pointer-events-none absolute top-1/2 right-3 size-4 -translate-y-1/2 text-muted-foreground" aria-hidden /></div>{passwordError && <p className="text-xs text-risk-high">{passwordError}</p>}</div>
+                <Button type="submit" className="w-full rounded-xl" size="lg" disabled={isAnalyzing}>{isAnalyzing ? "Signing in…" : "Sign In"}{!isAnalyzing && <ArrowRight className="size-4" />}</Button>
               </form>
-
-              <div className="mt-5 rounded-xl border border-border bg-muted/30 p-3"><p className="text-xs font-medium text-foreground">Automatic role detection</p><p className="mt-1 text-xs leading-relaxed text-muted-foreground">Registered credentials are automatically routed to Investigator, Manager, or Administrator. Unknown credentials are denied.</p></div>
-              <div className="mt-4 text-center text-sm text-muted-foreground">Don't have an account? <Link to="/sign-up" className="font-medium text-violet hover:text-foreground">Sign Up</Link></div>
             </div>
           </div>
         </div>
