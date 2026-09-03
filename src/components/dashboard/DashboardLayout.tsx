@@ -32,7 +32,7 @@ export function DashboardLayout({ title, userRole, userName, children }: Dashboa
   if (!isAuthenticated || !allowed) return null;
 
   return (
-    <div className="gov-dashboard flex min-h-screen bg-background text-foreground selection:bg-primary/20 selection:text-primary">
+    <div className="gov-dashboard dashboard-monochrome flex min-h-screen bg-background text-foreground selection:bg-primary/20 selection:text-primary">
       <Sidebar open={sidebarOpen} onOpenChange={setSidebarOpen} userRole={activeRole} />
       <div className="flex min-w-0 flex-1 flex-col overflow-hidden">
         <DashboardHeader title={activeTitle} userRole={activeRole} userName={activeUserName} />
