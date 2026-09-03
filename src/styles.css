@@ -55,83 +55,75 @@
   --color-risk-medium: var(--risk-medium);
   --color-risk-high: var(--risk-high);
   --color-risk-critical: var(--risk-critical);
-  --color-section-emphasis: var(--section-emphasis);
-  --color-section-emphasis-foreground: var(--section-emphasis-foreground);
-  --color-section-emphasis-muted: var(--section-emphasis-muted);
-  --color-section-emphasis-border: var(--section-emphasis-border);
-  --color-section-emphasis-surface: var(--section-emphasis-surface);
-  --color-section-emphasis-accent: var(--section-emphasis-accent);
   --color-overlay: var(--overlay);
 }
 
 :root {
   color-scheme: dark;
-  --radius: 0.5rem;
+  --radius: 0.375rem;
 
-  /* Original SafeFlow dark palette */
-  --navy: #4e1f6e;
-  --deep: #4e1f6e;
+  /* SafeFlow government palette */
+  --navy: #0f0a16;
+  --deep: #171021;
   --gov: #4e1f6e;
-  --violet: #4c4b9a;
-  --lavender: #2a1935;
+  --violet: #4e1f6e;
+  --lavender: #c9b9d3;
   --teal: #4c4b9a;
   --offwhite: #ffffff;
 
-  /* Risk states use the same two brand accents. */
+  /* Risk states remain within the brand system. */
   --risk-low: #4c4b9a;
-  --risk-medium: #4c4b9a;
+  --risk-medium: #8c7db2;
   --risk-high: #4e1f6e;
-  --risk-critical: #4e1f6e;
+  --risk-critical: #6b2b8f;
 
-  /* Dark page / light content-surface system */
-  --background: #120b18;
+  /* Dark government workspace */
+  --background: #0f0a16;
   --foreground: #ffffff;
-  --card: #ffffff;
-  --card-foreground: #4e1f6e;
-  --popover: #ffffff;
-  --popover-foreground: #4e1f6e;
-
+  --card: #171021;
+  --card-foreground: #ffffff;
+  --popover: #1b1226;
+  --popover-foreground: #ffffff;
   --primary: #4e1f6e;
   --primary-foreground: #ffffff;
   --secondary: #4c4b9a;
   --secondary-foreground: #ffffff;
-  --muted: #2a1935;
-  --muted-foreground: #d8cde0;
-  --accent: #2a1935;
+  --muted: #21172c;
+  --muted-foreground: #c9bfd1;
+  --accent: #2b1d38;
   --accent-foreground: #ffffff;
-  --destructive: #4e1f6e;
+  --destructive: #6b2b8f;
   --destructive-foreground: #ffffff;
-  --border: #493052;
-  --input: #553a60;
+  --border: #382942;
+  --input: #44344e;
   --ring: #4c4b9a;
-  --overlay: #000000bf;
+  --overlay: #000000c7;
 
-  /* Light cards always use dark readable text. */
-  --section-emphasis: #ffffff;
-  --section-emphasis-foreground: #4e1f6e;
-  --section-emphasis-muted: #665c70;
-  --section-emphasis-border: #ded5e5;
-  --section-emphasis-surface: #f7f4f9;
-  --section-emphasis-accent: #4c4b9a;
+  /* Intentional light information surface */
+  --surface-light: #ffffff;
+  --surface-light-foreground: #24142e;
+  --surface-light-muted: #665d6b;
+  --surface-light-border: #ddd5e2;
+  --surface-light-accent: #4c4b9a;
 
   --gradient-hero: none;
   --gradient-cta: none;
-  --shadow-card: 0 1px 2px #00000047;
-  --shadow-float: 0 12px 32px -20px #00000073;
+  --shadow-card: 0 1px 2px #00000055;
+  --shadow-float: 0 14px 32px -22px #00000088;
 
   --chart-1: #4e1f6e;
   --chart-2: #4c4b9a;
   --chart-3: #ffffff;
-  --chart-4: #4c4b9a;
-  --chart-5: #4e1f6e;
+  --chart-4: #8c7db2;
+  --chart-5: #6b2b8f;
 
-  --sidebar: #160d1e;
+  --sidebar: #120c1a;
   --sidebar-foreground: #ffffff;
   --sidebar-primary: #4e1f6e;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #2a1935;
+  --sidebar-accent: #21172c;
   --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #493052;
+  --sidebar-border: #30223a;
   --sidebar-ring: #4c4b9a;
 }
 
@@ -143,24 +135,33 @@
     background: var(--color-background);
   }
   body {
-    background-color: var(--color-background);
+    background: var(--color-background);
     color: var(--color-foreground);
     -webkit-font-smoothing: antialiased;
   }
-
-  /* Explicitly keep text dark whenever a surface is light. */
-  .bg-white,
-  [class*="bg-white/"] {
-    color: #4e1f6e;
-  }
-
-  .bg-white .text-foreground,
-  [class*="bg-white/"] .text-foreground {
-    color: #4e1f6e !important;
-  }
 }
 
-/* Normalize legacy utilities without changing light content surfaces. */
+/* Intentional light content panels: white surface, dark readable text. */
+.surface-light,
+.bg-white {
+  background-color: var(--surface-light) !important;
+  color: var(--surface-light-foreground) !important;
+  border-color: var(--surface-light-border) !important;
+}
+
+.surface-light .text-foreground,
+.surface-light .text-white,
+.bg-white .text-foreground,
+.bg-white .text-white {
+  color: var(--surface-light-foreground) !important;
+}
+
+.surface-light .text-muted-foreground,
+.bg-white .text-muted-foreground {
+  color: var(--surface-light-muted) !important;
+}
+
+/* Keep legacy dark utilities aligned with the government shell. */
 .bg-black,
 .bg-gray-950,
 .bg-slate-950,
@@ -182,22 +183,14 @@
   border-color: var(--color-border) !important;
 }
 
-.text-violet {
-  color: var(--color-teal) !important;
-}
-
-.bg-violet {
-  background-color: var(--color-primary) !important;
-}
-
-.border-violet {
-  border-color: var(--color-ring) !important;
-}
-
+.text-violet { color: var(--color-violet) !important; }
+.bg-violet { background-color: var(--color-primary) !important; }
+.border-violet { border-color: var(--color-violet) !important; }
+.text-teal { color: var(--color-teal) !important; }
+.bg-teal { background-color: var(--color-teal) !important; }
+.border-teal { border-color: var(--color-teal) !important; }
 .text-risk-high,
-.text-risk-critical {
-  color: var(--color-teal) !important;
-}
+.text-risk-critical { color: #b88ad2 !important; }
 
 @utility container-hz {
   width: 100%;
