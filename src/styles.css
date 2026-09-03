@@ -74,13 +74,10 @@
   --lavender: #c4b5fd;
   --teal: #14b8a6;
   --offwhite: #f8fafc;
-
-  /* Semantic risk colors: High = red, Medium = yellow, Low = green. */
   --risk-low: #22c55e;
   --risk-medium: #eab308;
   --risk-high: #ef4444;
   --risk-critical: #dc2626;
-
   --background: #0d1117;
   --foreground: #f0f6fc;
   --card: #161b22;
@@ -101,31 +98,26 @@
   --input: #30363d;
   --ring: #8b5cf6;
   --overlay: #000000cc;
-
   --section-emphasis: #111827;
   --section-emphasis-surface: #161b22;
   --section-emphasis-foreground: #f0f6fc;
   --section-emphasis-muted: #aab4c0;
   --section-emphasis-border: #30363d;
   --section-emphasis-accent: #8b5cf6;
-
   --surface-light: #161b22;
   --surface-light-foreground: #f0f6fc;
   --surface-light-muted: #8b949e;
   --surface-light-border: #30363d;
   --surface-light-accent: #8b5cf6;
-
   --gradient-hero: none;
   --gradient-cta: none;
   --shadow-card: none;
   --shadow-float: 0 8px 24px #00000066;
-
   --chart-1: #8b5cf6;
   --chart-2: #14b8a6;
   --chart-3: #22c55e;
   --chart-4: #eab308;
   --chart-5: #ef4444;
-
   --sidebar: #0d1117;
   --sidebar-foreground: #f0f6fc;
   --sidebar-primary: #f0f6fc;
@@ -145,12 +137,7 @@
 
 .surface-light,
 .bg-white,
-.bg-offwhite {
-  background-color: #161b22 !important;
-  color: #f0f6fc !important;
-  border-color: #30363d !important;
-}
-
+.bg-offwhite { background-color: #161b22 !important; color: #f0f6fc !important; border-color: #30363d !important; }
 .surface-light .text-foreground,
 .surface-light .text-white,
 .surface-light .text-black,
@@ -160,15 +147,12 @@
 .bg-offwhite .text-foreground,
 .bg-offwhite .text-white,
 .bg-offwhite .text-black { color: #f0f6fc !important; }
-
 .surface-light .text-muted-foreground,
 .bg-white .text-muted-foreground,
 .bg-offwhite .text-muted-foreground { color: #8b949e !important; }
-
 .surface-light .text-gov,
 .bg-white .text-gov,
 .bg-offwhite .text-gov { color: #8b949e !important; }
-
 .bg-black,
 .bg-gray-950,
 .bg-slate-950,
@@ -182,7 +166,6 @@
 .border-slate-950,
 .border-zinc-950 { border-color: #30363d !important; }
 
-/* Supporting dashboard accents: keep the UI colorful without competing with risk semantics. */
 .text-violet { color: #8b5cf6 !important; }
 .bg-violet { background-color: #8b5cf6 !important; }
 .border-violet { border-color: #8b5cf6 !important; }
@@ -190,51 +173,52 @@
 .bg-teal { background-color: #14b8a6 !important; }
 .border-teal { border-color: #14b8a6 !important; }
 
-/* Risk text colors — consistent across Investigator, Manager and Administrator dashboards. */
 .text-risk-low { color: #22c55e !important; }
 .text-risk-medium { color: #eab308 !important; }
 .text-risk-high { color: #ef4444 !important; }
 .text-risk-critical { color: #dc2626 !important; }
-
-/* Risk background colors. */
 .bg-risk-low\/10 { background-color: rgb(34 197 94 / 0.10) !important; }
 .bg-risk-medium\/10 { background-color: rgb(234 179 8 / 0.10) !important; }
 .bg-risk-high\/10 { background-color: rgb(239 68 68 / 0.10) !important; }
 .bg-risk-critical\/10 { background-color: rgb(220 38 38 / 0.10) !important; }
-
-/* Risk border colors. */
 .border-risk-low\/20 { border-color: rgb(34 197 94 / 0.20) !important; }
 .border-risk-medium\/20 { border-color: rgb(234 179 8 / 0.20) !important; }
 .border-risk-high\/20 { border-color: rgb(239 68 68 / 0.20) !important; }
 .border-risk-critical\/20 { border-color: rgb(220 38 38 / 0.20) !important; }
 
-[class*="rounded-4xl"],
-[class*="rounded-3xl"],
-[class*="rounded-2xl"],
-[class*="rounded-xl"],
-[class*="rounded-lg"] { border-radius: 8px; }
-[class*="shadow-"] { box-shadow: none !important; }
+/* Risk-level pills: make HIGH / MEDIUM / LOW unmistakably visible in every dashboard table. */
+span.text-risk-low,
+span.text-risk-medium,
+span.text-risk-high,
+span.text-risk-critical {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  min-width: 66px;
+  padding: 4px 9px !important;
+  border: 1px solid !important;
+  border-radius: 9999px !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+}
+span.text-risk-low { background: rgb(34 197 94 / 0.16) !important; border-color: rgb(34 197 94 / 0.38) !important; }
+span.text-risk-medium { background: rgb(234 179 8 / 0.16) !important; border-color: rgb(234 179 8 / 0.42) !important; }
+span.text-risk-high { background: rgb(239 68 68 / 0.16) !important; border-color: rgb(239 68 68 / 0.42) !important; }
+span.text-risk-critical { background: rgb(220 38 38 / 0.20) !important; border-color: rgb(220 38 38 / 0.48) !important; }
 
+[class*="rounded-4xl"], [class*="rounded-3xl"], [class*="rounded-2xl"], [class*="rounded-xl"], [class*="rounded-lg"] { border-radius: 8px; }
+[class*="shadow-"] { box-shadow: none !important; }
 button, a { transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease; }
 button:hover, a:hover { filter: none; }
-
 input, textarea, select { background-color: #0d1117; border-color: #30363d; color: #f0f6fc; }
 input::placeholder, textarea::placeholder { color: #8b949e; }
 input:focus, textarea:focus, select:focus { border-color: #8b5cf6; outline: 2px solid #8b5cf633; outline-offset: 0; }
 
-@utility container-hz {
-  width: 100%; max-width: 1280px; margin-inline: auto; padding-inline: 1.5rem;
-}
-
-@utility eyebrow {
-  font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.12em; text-transform: uppercase;
-}
-
+@utility container-hz { width: 100%; max-width: 1280px; margin-inline: auto; padding-inline: 1.5rem; }
+@utility eyebrow { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.12em; text-transform: uppercase; }
 @keyframes hz-reveal { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 .hz-reveal { opacity: 0; }
 .hz-reveal.is-visible { animation: hz-reveal 0.5s ease forwards; }
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .hz-reveal, .hz-reveal.is-visible, .hz-pulse, .hz-dash, .hz-float { animation: none !important; opacity: 1; }
-}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .hz-reveal, .hz-reveal.is-visible, .hz-pulse, .hz-dash, .hz-float { animation: none !important; opacity: 1; } }
