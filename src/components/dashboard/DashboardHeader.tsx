@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { ThemeToggle } from "@/components/ThemeToggle";
-import { Bell, CircleUser, ChevronDown, ShieldCheck, FileText, Lock, Check } from "lucide-react";
+import { useNavigate } from "@tanstack/react-router";
+import { ChevronDown, ShieldCheck, FileText, Lock, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useRole, type RoleId } from "@/context/RoleContext";
 
@@ -15,7 +15,8 @@ export function DashboardHeader({
   userRole: userRoleProp,
   userName: userNameProp,
 }: DashboardHeaderProps) {
-  const { role, setRole, user, dashboardTitle } = useRole();
+  const navigate = useNavigate();
+  const { role, setRole, clearRole, user, dashboardTitle } = useRole();
   const [roleMenuOpen, setRoleMenuOpen] = useState(false);
 
   const displayTitle = title || dashboardTitle;
@@ -28,33 +29,35 @@ export function DashboardHeader({
     { id: "administrator", label: "Administrator", icon: Lock },
   ];
 
+  const handleLogout = () => {
+    clearRole();
+    navigate({ to: "/sign-in" });
+  };
+
   return (
-    <header className="border-b border-border/80 bg-background/95 backdrop-blur-md sticky top-0 z-20 shadow-2xs">
-      <div className="flex items-center justify-between gap-4 px-4 py-3.5 sm:px-6 lg:px-8">
-        {/* Left side */}
-        <div className="flex-1 min-w-0">
-          <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground truncate">{displayTitle}</h1>
-          <p className="mt-0.5 text-xs text-muted-foreground truncate">
-            Session: <span className="font-semibold text-foreground capitalize">{activeRole}</span> ({user.email})
+    <header className="sticky top-0 z-20 border-b border-border bg-background">
+      <div className="flex items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-7">
+        <div className="min-w-0 flex-1">
+          <h1 className="truncate text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
+            {displayTitle}
+          </h1>
+          <p className="mt-0.5 truncate text-xs text-muted-foreground">
+            Overview of fraud detection and investigation activity
           </p>
         </div>
 
-        {/* Right side - Notifications, Role Switcher and Profile */}
-        <div className="flex items-center gap-2.5 sm:gap-3.5">
-          <ThemeToggle compact />
-
-          {/* Quick Role Switcher for Demo */}
+        <div className="flex shrink-0 items-center gap-3">
           <div className="relative">
             <button
+              type="button"
               onClick={() => setRoleMenuOpen(!roleMenuOpen)}
               className={cn(
-                "flex items-center gap-2 rounded-xl border border-border bg-card px-3 py-1.5 text-xs font-semibold text-foreground transition-all duration-150",
-                "hover:bg-muted/60 hover:border-border",
-                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                "flex items-center gap-2 rounded-md border border-border bg-card px-3 py-2 text-xs font-medium text-foreground",
+                "hover:border-primary/50 hover:bg-muted/30",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30",
               )}
               aria-label="Switch role"
             >
-              <span className="size-2 rounded-full bg-primary animate-pulse" />
               <span className="capitalize">{activeRole} View</span>
               <ChevronDown className="size-3.5 text-muted-foreground" />
             </button>
@@ -65,9 +68,9 @@ export function DashboardHeader({
                   className="fixed inset-0 z-30"
                   onClick={() => setRoleMenuOpen(false)}
                 />
-                <div className="absolute right-0 top-full mt-2 z-40 w-52 rounded-2xl border border-border bg-card p-1.5 shadow-lg">
-                  <p className="px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground font-mono">
-                    Switch Demo Role
+                <div className="absolute right-0 top-full z-40 mt-1 w-52 rounded-md border border-border bg-card p-1 shadow-md">
+                  <p className="px-3 py-2 text-[10px] font-medium uppercase tracking-wide text-muted-foreground">
+                    Switch Role
                   </p>
                   {rolesList.map((item) => {
                     const RoleIcon = item.icon;
@@ -75,22 +78,23 @@ export function DashboardHeader({
                     return (
                       <button
                         key={item.id}
+                        type="button"
                         onClick={() => {
                           setRole(item.id);
                           setRoleMenuOpen(false);
                         }}
                         className={cn(
-                          "flex w-full items-center justify-between rounded-xl px-3 py-2 text-xs font-medium transition-colors",
+                          "flex w-full items-center justify-between rounded-sm px-3 py-2 text-xs",
                           isSelected
-                            ? "bg-primary/10 text-primary font-semibold"
-                            : "text-foreground hover:bg-muted/60",
+                            ? "bg-primary/10 font-medium text-primary"
+                            : "text-foreground hover:bg-muted",
                         )}
                       >
-                        <div className="flex items-center gap-2">
+                        <span className="flex items-center gap-2">
                           <RoleIcon className="size-3.5" />
-                          <span>{item.label}</span>
-                        </div>
-                        {isSelected && <Check className="size-3 text-primary" />}
+                          {item.label}
+                        </span>
+                        {isSelected && <Check className="size-3.5" />}
                       </button>
                     );
                   })}
@@ -99,33 +103,18 @@ export function DashboardHeader({
             )}
           </div>
 
-          {/* Notification bell */}
-          <button
-            className={cn(
-              "relative rounded-xl border border-border bg-card p-2 text-foreground transition-colors duration-150",
-              "hover:bg-muted/60",
-              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet/20",
-            )}
-            aria-label="Notifications"
-          >
-            <Bell className="size-4" />
-            <span className="absolute top-1.5 right-1.5 h-1.5 w-1.5 rounded-full bg-risk-high" aria-hidden />
-          </button>
-
-          {/* User profile */}
-          <div
-            className={cn(
-              "flex items-center gap-2.5 rounded-xl border border-border bg-card px-2.5 py-1.5 transition-colors duration-150",
-            )}
-          >
-            <div className="hidden text-right lg:block">
-              <p className="text-xs font-semibold text-foreground leading-tight">{displayUserName}</p>
-              <p className="text-[11px] text-muted-foreground capitalize leading-tight mt-0.5">{activeRole}</p>
-            </div>
-            <div className="flex size-7 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold text-xs shadow-xs">
-              {displayUserName.charAt(0)}
-            </div>
+          <div className="hidden text-right sm:block">
+            <p className="text-xs font-medium text-foreground">{displayUserName}</p>
+            <p className="text-[11px] capitalize text-muted-foreground">{activeRole}</p>
           </div>
+
+          <button
+            type="button"
+            onClick={handleLogout}
+            className="rounded-md border border-border bg-card px-3 py-2 text-xs font-medium text-foreground hover:border-primary/50 hover:bg-muted/30"
+          >
+            Logout
+          </button>
         </div>
       </div>
     </header>
