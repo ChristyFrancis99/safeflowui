@@ -5,18 +5,15 @@ import { Eyebrow, Mono, Reveal } from "./shared";
 
 export function HeroSection() {
   return (
-    <section id="top" className="relative overflow-hidden bg-background py-16 md:py-20">
-      <div className="pointer-events-none absolute inset-0 opacity-70" aria-hidden>
-        <div className="absolute right-[-12%] top-[-8%] h-[440px] w-[440px] rounded-full bg-violet/10 blur-3xl" />
-        <div className="absolute left-[-18%] bottom-[-25%] h-[340px] w-[340px] rounded-full bg-teal/5 blur-3xl" />
-      </div>
-
-      <div className="container-hz relative">
-        <div className="grid items-center gap-8 lg:grid-cols-[0.88fr_1.12fr] xl:gap-4">
-          <div className="relative z-10 max-w-2xl lg:pr-6">
-            <Reveal><Eyebrow>Safe Flow</Eyebrow></Reveal>
+    <section id="top" className="border-b border-border bg-background py-16 md:py-20">
+      <div className="container-hz">
+        <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] xl:gap-14">
+          <div className="max-w-2xl">
+            <Reveal>
+              <Eyebrow>Safe Flow</Eyebrow>
+            </Reveal>
             <Reveal delay={80}>
-              <h1 className="mt-4 text-left text-4xl leading-[1.04] font-semibold tracking-tight text-balance md:text-5xl lg:text-6xl">
+              <h1 className="mt-4 text-left text-4xl font-semibold leading-[1.08] tracking-tight text-balance md:text-5xl lg:text-6xl">
                 Detect. Investigate. Explain. Decide.
               </h1>
             </Reveal>
@@ -27,19 +24,22 @@ export function HeroSection() {
               </p>
             </Reveal>
             <Reveal delay={240}>
-              <div className="mt-6 flex flex-col items-start gap-3 sm:flex-row">
-                <Button asChild size="lg" className="rounded-xl shadow-sm">
-                  <Link to="/sign-in">Launch Investigator <ArrowRight className="size-4" aria-hidden /></Link>
+              <div className="mt-7 flex flex-col items-start gap-3 sm:flex-row">
+                <Button asChild size="lg" className="rounded-md">
+                  <Link to="/sign-in">
+                    Launch Investigator
+                    <ArrowRight className="size-4" aria-hidden />
+                  </Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="rounded-xl border-border bg-background">
+                <Button asChild size="lg" variant="outline" className="rounded-md border-border bg-background">
                   <a href="#platform">Explore the Platform</a>
                 </Button>
               </div>
             </Reveal>
             <Reveal delay={320}>
-              <div className="mt-6 grid max-w-xl grid-cols-1 gap-2.5 sm:grid-cols-3">
+              <div className="mt-7 grid max-w-xl grid-cols-1 gap-3 sm:grid-cols-3">
                 {["RISK REVIEW", "REGULATORY CONTEXT", "AUDIT TRAIL"].map((item) => (
-                  <div key={item} className="border-l border-border pl-3">
+                  <div key={item} className="border-l-2 border-primary pl-3">
                     <Mono className="text-muted-foreground">{item}</Mono>
                   </div>
                 ))}
@@ -48,12 +48,11 @@ export function HeroSection() {
           </div>
 
           <Reveal delay={180}>
-            <div className="relative -mr-6 flex min-h-[340px] items-center justify-end lg:-mr-14 xl:-mr-20">
-              <div className="absolute right-0 top-1/2 h-[460px] w-[620px] -translate-y-1/2 rounded-full bg-violet/10 blur-3xl" aria-hidden />
+            <div className="flex min-h-[320px] items-center justify-end border border-border bg-card p-5 lg:min-h-[380px]">
               <img
                 src="/pay-safe-stay-secure.png"
                 alt="Safe Flow security shield illustration"
-                className="relative z-10 h-auto w-full max-w-[620px] object-contain object-right [mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.18)_18%,black_46%,black_100%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.18)_18%,black_46%,black_100%)]"
+                className="h-auto w-full max-w-[600px] object-contain object-right"
                 loading="eager"
               />
             </div>
