@@ -68,18 +68,20 @@
   color-scheme: dark;
   --radius: 0.375rem;
 
+  /* Neutral dashboard system */
   --navy: #0d1117;
   --deep: #161b22;
   --gov: #8b949e;
-  --violet: #b5baff;
-  --lavender: #b5baff;
-  --teal: #56d4c4;
+  --violet: #f0f6fc;
+  --lavender: #f0f6fc;
+  --teal: #f0f6fc;
   --offwhite: #161b22;
 
-  --risk-low: #3fb950;
-  --risk-medium: #d29922;
-  --risk-high: #f0883e;
-  --risk-critical: #f85149;
+  /* Risk is the only semantic color system */
+  --risk-low: #22c55e;
+  --risk-medium: #eab308;
+  --risk-high: #ef4444;
+  --risk-critical: #dc2626;
 
   --background: #0d1117;
   --foreground: #f0f6fc;
@@ -87,19 +89,19 @@
   --card-foreground: #f0f6fc;
   --popover: #161b22;
   --popover-foreground: #f0f6fc;
-  --primary: #8957e5;
-  --primary-foreground: #ffffff;
+  --primary: #f0f6fc;
+  --primary-foreground: #0d1117;
   --secondary: #21262d;
   --secondary-foreground: #f0f6fc;
   --muted: #21262d;
   --muted-foreground: #8b949e;
-  --accent: #23162b;
+  --accent: #21262d;
   --accent-foreground: #f0f6fc;
-  --destructive: #da3633;
+  --destructive: #ef4444;
   --destructive-foreground: #ffffff;
   --border: #30363d;
   --input: #30363d;
-  --ring: #b5baff;
+  --ring: #f0f6fc;
   --overlay: #000000cc;
 
   --section-emphasis: #111827;
@@ -107,33 +109,33 @@
   --section-emphasis-foreground: #f0f6fc;
   --section-emphasis-muted: #aab4c0;
   --section-emphasis-border: #30363d;
-  --section-emphasis-accent: #b5baff;
+  --section-emphasis-accent: #f0f6fc;
 
   --surface-light: #161b22;
   --surface-light-foreground: #f0f6fc;
   --surface-light-muted: #8b949e;
   --surface-light-border: #30363d;
-  --surface-light-accent: #8957e5;
+  --surface-light-accent: #f0f6fc;
 
   --gradient-hero: none;
   --gradient-cta: none;
   --shadow-card: none;
   --shadow-float: 0 8px 24px #00000066;
 
-  --chart-1: #b5baff;
-  --chart-2: #f0f6fc;
+  --chart-1: #f0f6fc;
+  --chart-2: #c9d1d9;
   --chart-3: #8b949e;
-  --chart-4: #8957e5;
-  --chart-5: #6e7781;
+  --chart-4: #6e7781;
+  --chart-5: #484f58;
 
   --sidebar: #0d1117;
   --sidebar-foreground: #f0f6fc;
-  --sidebar-primary: #b5baff;
+  --sidebar-primary: #f0f6fc;
   --sidebar-primary-foreground: #0d1117;
   --sidebar-accent: #161b22;
   --sidebar-accent-foreground: #f0f6fc;
   --sidebar-border: #30363d;
-  --sidebar-ring: #b5baff;
+  --sidebar-ring: #f0f6fc;
 }
 
 @layer base {
@@ -167,7 +169,7 @@
 
 .surface-light .text-gov,
 .bg-white .text-gov,
-.bg-offwhite .text-gov { color: #b5baff !important; }
+.bg-offwhite .text-gov { color: #8b949e !important; }
 
 .bg-black,
 .bg-gray-950,
@@ -182,16 +184,18 @@
 .border-slate-950,
 .border-zinc-950 { border-color: #30363d !important; }
 
-.text-violet { color: #b5baff !important; }
-.bg-violet { background-color: #8957e5 !important; }
-.border-violet { border-color: #b5baff !important; }
-.text-teal { color: #56d4c4 !important; }
-.bg-teal { background-color: #123b3a !important; }
-.border-teal { border-color: #56d4c4 !important; }
-.text-risk-low { color: #3fb950 !important; }
-.text-risk-medium { color: #d29922 !important; }
-.text-risk-high { color: #f0883e !important; }
-.text-risk-critical { color: #f85149 !important; }
+/* Dashboard accent colors are neutral; risk keeps semantic meaning. */
+.text-violet { color: #f0f6fc !important; }
+.bg-violet { background-color: #30363d !important; }
+.border-violet { border-color: #8b949e !important; }
+.text-teal { color: #f0f6fc !important; }
+.bg-teal { background-color: #21262d !important; }
+.border-teal { border-color: #8b949e !important; }
+
+.text-risk-low { color: #22c55e !important; }
+.text-risk-medium { color: #eab308 !important; }
+.text-risk-high { color: #ef4444 !important; }
+.text-risk-critical { color: #dc2626 !important; }
 
 [class*="rounded-4xl"],
 [class*="rounded-3xl"],
@@ -205,7 +209,7 @@ button:hover, a:hover { filter: none; }
 
 input, textarea, select { background-color: #0d1117; border-color: #30363d; color: #f0f6fc; }
 input::placeholder, textarea::placeholder { color: #8b949e; }
-input:focus, textarea:focus, select:focus { border-color: #b5baff; outline: 2px solid #b5baff33; outline-offset: 0; }
+input:focus, textarea:focus, select:focus { border-color: #f0f6fc; outline: 2px solid #f0f6fc33; outline-offset: 0; }
 
 @utility container-hz {
   width: 100%; max-width: 1280px; margin-inline: auto; padding-inline: 1.5rem;
