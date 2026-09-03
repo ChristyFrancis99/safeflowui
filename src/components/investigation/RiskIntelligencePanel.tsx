@@ -1,12 +1,11 @@
 import { AlertTriangle } from "lucide-react";
-import { cn } from "@/lib/utils";
 import type { RiskScore } from "@/types/investigation";
 
 const levelStyle = {
-  LOW: "text-risk-low bg-risk-low/10",
-  MEDIUM: "text-risk-medium bg-risk-medium/10",
-  HIGH: "text-risk-high bg-risk-high/10",
-  CRITICAL: "text-risk-critical bg-risk-critical/10",
+  LOW: "border-[#30363d] bg-[#161b22] text-[#b5baff]",
+  MEDIUM: "border-[#30363d] bg-[#161b22] text-[#b5baff]",
+  HIGH: "border-[#6b4a7d] bg-[#23162b] text-[#b5baff]",
+  CRITICAL: "border-[#6b4a7d] bg-[#23162b] text-[#b5baff]",
 };
 
 export function RiskIntelligencePanel({ risk }: { risk: RiskScore }) {
@@ -14,63 +13,72 @@ export function RiskIntelligencePanel({ risk }: { risk: RiskScore }) {
   const majorFactors = risk.factors.slice(0, 4);
 
   return (
-    <aside className="rounded-2xl border border-border bg-card p-5 sm:p-6" aria-labelledby="risk-intelligence-title">
-      <div className="flex items-start justify-between gap-3 border-b border-border pb-4">
+    <aside
+      className="rounded-md border border-[#30363d] bg-[#161b22] p-5 sm:p-6 text-white"
+      aria-labelledby="risk-intelligence-title"
+    >
+      <div className="flex items-start justify-between gap-3 border-b border-[#30363d] pb-4">
         <div>
-          <p className="text-[10px] font-semibold tracking-[0.16em] text-muted-foreground uppercase font-mono">
+          <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-[#8b949e]">
             Risk Intelligence
           </p>
-          <h2 id="risk-intelligence-title" className="mt-1 text-lg font-semibold text-foreground">
+          <h2 id="risk-intelligence-title" className="mt-1 text-lg font-semibold text-white">
             Risk Score
           </h2>
         </div>
-        <AlertTriangle className="size-5 text-risk-high" aria-hidden="true" />
+        <AlertTriangle className="size-5 text-[#b5baff]" aria-hidden="true" />
       </div>
 
-      <div className="mt-5 rounded-xl border border-border bg-muted/40 p-4">
+      <div className="mt-5 rounded-md border border-[#30363d] bg-[#0d1117] p-4">
         <div className="flex items-end justify-between gap-3">
           <div>
-            <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+            <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#8b949e]">
               Current score
             </span>
             <div className="mt-2 flex items-end gap-2">
-              <span className="text-4xl font-semibold tabular-nums text-foreground">{risk.value}</span>
-              <span className="pb-1 text-sm text-muted-foreground">/ {risk.max}</span>
+              <span className="text-4xl font-semibold tabular-nums text-white">{risk.value}</span>
+              <span className="pb-1 text-sm text-[#8b949e]">/ {risk.max}</span>
             </div>
           </div>
-          <span className={cn("rounded-md border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em]", levelStyle[risk.level])}>
+          <span className={`rounded-md border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] ${levelStyle[risk.level]}`}>
             {risk.level}
           </span>
         </div>
       </div>
 
       <div className="mt-6">
-        <h3 className="text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground font-mono">
+        <h3 className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-[#8b949e]">
           Key Factors
         </h3>
         <div className="mt-3 space-y-2.5">
           {majorFactors.map((factor) => (
-            <div key={factor.label} className="flex items-center justify-between gap-3 rounded-lg border border-border bg-background px-3 py-2.5">
-              <span className="text-xs text-foreground">{factor.label}</span>
-              <span className="font-mono text-[11px] font-semibold text-risk-high">+{factor.contribution}</span>
+            <div
+              key={factor.label}
+              className="flex items-center justify-between gap-3 rounded-md border border-[#30363d] bg-[#0d1117] px-3 py-2.5"
+            >
+              <span className="text-xs text-white">{factor.label}</span>
+              <span className="font-mono text-[11px] font-semibold text-[#b5baff]">+{factor.contribution}</span>
             </div>
           ))}
         </div>
       </div>
 
-      <div className="mt-6 border-t border-border pt-5">
-        <h3 className="text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground font-mono">
+      <div className="mt-6 border-t border-[#30363d] pt-5">
+        <h3 className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-[#8b949e]">
           Contribution profile
         </h3>
         <ul className="mt-4 space-y-3">
           {risk.factors.map((factor) => (
             <li key={factor.label}>
               <div className="flex justify-between gap-3 text-xs">
-                <span className="text-foreground">{factor.label}</span>
-                <span className="font-mono text-muted-foreground">+{factor.contribution}</span>
+                <span className="text-white">{factor.label}</span>
+                <span className="font-mono text-[#8b949e]">+{factor.contribution}</span>
               </div>
-              <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-muted">
-                <div className="h-full rounded-full bg-violet" style={{ width: `${(factor.contribution / maxContribution) * 100}%` }} />
+              <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-[#21262d]">
+                <div
+                  className="h-full rounded-full bg-[#b5baff]"
+                  style={{ width: `${(factor.contribution / maxContribution) * 100}%` }}
+                />
               </div>
             </li>
           ))}
