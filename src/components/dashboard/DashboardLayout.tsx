@@ -37,20 +37,6 @@ export function DashboardLayout({ title, userRole, userName, children }: Dashboa
       <div className="flex min-w-0 flex-1 flex-col overflow-hidden">
         <DashboardHeader title={activeTitle} userRole={activeRole} userName={activeUserName} />
         <main className={cn("w-full flex-1 overflow-y-auto px-4 py-5 sm:px-6 lg:px-7", "space-y-5")}>
-          <div className="flex flex-wrap items-center justify-end gap-2" aria-label="Risk level legend">
-            <div className="flex items-center gap-2 rounded-lg border border-emerald-400/30 bg-emerald-500/10 px-3 py-2 text-xs font-semibold text-emerald-300">
-              <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.55)]" />
-              Low Risk
-            </div>
-            <div className="flex items-center gap-2 rounded-lg border border-yellow-400/30 bg-yellow-500/10 px-3 py-2 text-xs font-semibold text-yellow-300">
-              <span className="h-2.5 w-2.5 rounded-full bg-yellow-400 shadow-[0_0_10px_rgba(250,204,21,0.55)]" />
-              Medium Risk
-            </div>
-            <div className="flex items-center gap-2 rounded-lg border border-orange-400/30 bg-orange-500/10 px-3 py-2 text-xs font-semibold text-orange-300">
-              <span className="h-2.5 w-2.5 rounded-full bg-orange-400 shadow-[0_0_10px_rgba(251,146,60,0.55)]" />
-              High Risk
-            </div>
-          </div>
           {children}
         </main>
       </div>
