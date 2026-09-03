@@ -191,6 +191,50 @@
   html { scroll-behavior: smooth; }
 }
 
+/* Theme normalization: prevent component-level hard-coded colors from breaking dark mode. */
+.dark .bg-white,
+.dark [class*="bg-white/"] {
+  background-color: var(--color-card) !important;
+}
+
+.dark .bg-black,
+.dark .bg-gray-950,
+.dark .bg-slate-950,
+.dark .bg-zinc-950 {
+  background-color: var(--color-background) !important;
+}
+
+.dark .text-black,
+.dark .text-gray-950,
+.dark .text-slate-950,
+.dark .text-zinc-950 {
+  color: var(--color-foreground) !important;
+}
+
+.dark .border-black,
+.dark .border-gray-950,
+.dark .border-slate-950,
+.dark .border-zinc-950 {
+  border-color: var(--color-border) !important;
+}
+
+.dark .text-violet {
+  color: var(--color-teal) !important;
+}
+
+.dark .bg-violet {
+  background-color: var(--color-primary) !important;
+}
+
+.dark .border-violet {
+  border-color: var(--color-ring) !important;
+}
+
+.dark .text-risk-high,
+.dark .text-risk-critical {
+  color: var(--color-teal) !important;
+}
+
 @utility container-hz {
   width: 100%;
   max-width: 1240px;
