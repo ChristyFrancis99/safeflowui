@@ -3,135 +3,68 @@
   color: #f0f6fc;
 }
 
-/* GitHub-inspired dark workspace: restrained, flat and information-dense. */
 .gov-dashboard .bg-card,
-.gov-dashboard .bg-background {
-  background-color: #161b22;
-}
-
+.gov-dashboard .bg-background { background-color: #161b22; }
 .gov-dashboard .bg-muted,
 .gov-dashboard .bg-muted\/30,
 .gov-dashboard .bg-muted\/40,
-.gov-dashboard .bg-muted\/50 {
-  background-color: #21262d;
-}
-
+.gov-dashboard .bg-muted\/50 { background-color: #21262d; }
 .gov-dashboard .border-border,
 .gov-dashboard .border,
 .gov-dashboard .border-b,
 .gov-dashboard .border-t,
 .gov-dashboard .border-l,
-.gov-dashboard .border-r {
-  border-color: #30363d;
-}
-
-.gov-dashboard .text-foreground {
-  color: #f0f6fc;
-}
-
-.gov-dashboard .text-muted-foreground {
-  color: #8b949e;
-}
-
+.gov-dashboard .border-r { border-color: #30363d; }
+.gov-dashboard .text-foreground { color: #f0f6fc; }
+.gov-dashboard .text-muted-foreground { color: #8b949e; }
 .gov-dashboard .text-primary,
-.gov-dashboard .text-violet {
-  color: #a371f7;
-}
-
+.gov-dashboard .text-violet { color: #b5baff; }
 .gov-dashboard .bg-primary,
-.gov-dashboard .bg-violet {
-  background-color: #4e1f6e;
-  color: #ffffff;
-}
-
-.gov-dashboard .bg-teal {
-  background-color: #4c4b9a;
-  color: #ffffff;
-}
-
-.gov-dashboard .text-teal {
-  color: #8b8edb;
-}
-
+.gov-dashboard .bg-violet { background-color: #8957e5; color: #ffffff; }
+.gov-dashboard .bg-teal { background-color: #123b3a; color: #56d4c4; }
+.gov-dashboard .text-teal { color: #56d4c4; }
 .gov-dashboard .ring-violet,
-.gov-dashboard .ring-primary {
-  --tw-ring-color: #4c4b9a;
-}
+.gov-dashboard .ring-primary { --tw-ring-color: #b5baff; }
 
-/* Compact controls and restrained geometry. */
 .gov-dashboard .rounded-4xl,
 .gov-dashboard .rounded-3xl,
 .gov-dashboard .rounded-2xl,
 .gov-dashboard .rounded-xl,
 .gov-dashboard .rounded-lg,
 .gov-dashboard .rounded-md,
-.gov-dashboard .rounded-sm {
-  border-radius: 6px;
-}
+.gov-dashboard .rounded-sm { border-radius: 6px; }
 
 .gov-dashboard .shadow-xs,
 .gov-dashboard .shadow-2xs,
 .gov-dashboard .shadow-sm,
 .gov-dashboard .shadow-md,
 .gov-dashboard .shadow-lg,
-.gov-dashboard .shadow-xl {
-  box-shadow: none;
-}
+.gov-dashboard .shadow-xl { box-shadow: none; }
 
 .gov-dashboard [class*="bg-gradient"],
 .gov-dashboard [class*="from-"],
 .gov-dashboard [class*="via-"],
-.gov-dashboard [class*="to-"] {
-  background-image: none !important;
-}
+.gov-dashboard [class*="to-"] { background-image: none !important; }
 
 .gov-dashboard button,
-.gov-dashboard a {
-  transition-duration: 120ms;
-}
-
+.gov-dashboard a { transition-duration: 120ms; }
 .gov-dashboard button:hover,
-.gov-dashboard a:hover {
-  filter: brightness(1.08);
-}
+.gov-dashboard a:hover { filter: brightness(1.08); }
 
-.gov-dashboard .border-l-2 {
-  border-left-width: 3px;
-  border-left-color: #4c4b9a;
-}
+.gov-dashboard .border-l-2 { border-left-width: 3px; border-left-color: #8957e5; }
+.gov-dashboard table { border-collapse: collapse; }
+.gov-dashboard table th { font-family: var(--font-sans); letter-spacing: 0.02em; color: #8b949e; background: #161b22; }
+.gov-dashboard table tbody tr { border-color: #30363d; }
+.gov-dashboard table tbody tr:hover { background-color: #21262d; }
 
-.gov-dashboard table {
-  border-collapse: collapse;
-}
+/* Risk hierarchy must remain semantic: high is orange and critical is red. */
+.gov-dashboard .text-risk-low { color: #3fb950 !important; }
+.gov-dashboard .text-risk-medium { color: #d29922 !important; }
+.gov-dashboard .text-risk-high { color: #f0883e !important; }
+.gov-dashboard .text-risk-critical { color: #f85149 !important; }
+.gov-dashboard .bg-risk-low\/10 { background-color: #3fb9501a; }
+.gov-dashboard .bg-risk-medium\/10 { background-color: #d299221a; }
+.gov-dashboard .bg-risk-high\/10 { background-color: #f0883e1a; }
+.gov-dashboard .bg-risk-critical\/10 { background-color: #f851491a; }
 
-.gov-dashboard table th {
-  font-family: var(--font-sans);
-  letter-spacing: 0.02em;
-  color: #8b949e;
-  background: #161b22;
-}
-
-.gov-dashboard table tbody tr {
-  border-color: #30363d;
-}
-
-.gov-dashboard table tbody tr:hover {
-  background-color: #21262d;
-}
-
-/* SafeFlow risk hierarchy: purple family, not unrelated colors. */
-.gov-dashboard .text-risk-high,
-.gov-dashboard .text-risk-critical {
-  color: #c297f5 !important;
-}
-
-.gov-dashboard .bg-risk-high\/10,
-.gov-dashboard .bg-risk-critical\/10 {
-  background-color: #4e1f6e33;
-}
-
-/* Keep focus states visible without decorative glow. */
-.gov-dashboard :focus-visible {
-  outline: 2px solid #4c4b9a;
-  outline-offset: 2px;
-}
+.gov-dashboard :focus-visible { outline: 2px solid #b5baff; outline-offset: 2px; }
