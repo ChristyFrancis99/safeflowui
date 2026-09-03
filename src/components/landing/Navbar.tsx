@@ -72,14 +72,7 @@ export function Navbar() {
             FAQ
           </a>
 
-          <Link
-            to="/sign-in"
-            className="rounded px-3 py-2 text-sm font-medium text-foreground transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
-          >
-            Sign In
-          </Link>
-
-          <Button asChild size="sm" className="rounded-xl">
+          <Button asChild size="sm" className="rounded-md">
             <Link to="/sign-in">Launch Investigator</Link>
           </Button>
         </div>
@@ -87,7 +80,7 @@ export function Navbar() {
         <div className="flex items-center gap-2 lg:hidden">
           <ThemeToggle compact />
 
-          <Button asChild size="sm" className="rounded-xl">
+          <Button asChild size="sm" className="rounded-md">
             <Link to="/sign-in">Launch</Link>
           </Button>
 
@@ -134,14 +127,6 @@ export function Navbar() {
           >
             FAQ
           </a>
-
-          <Link
-            to="/sign-in"
-            onClick={() => setOpen(false)}
-            className="rounded-lg px-2 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-muted"
-          >
-            Sign In / Launch
-          </Link>
         </nav>
       </div>
     </header>
