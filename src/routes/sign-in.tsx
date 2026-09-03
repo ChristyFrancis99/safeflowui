@@ -45,20 +45,7 @@ function SignInPage() {
         <div className="grid min-h-[calc(100vh-2rem)] lg:grid-cols-[1.08fr_0.92fr]">
           <div className="relative hidden h-full min-h-[calc(100vh-2rem)] overflow-hidden bg-black lg:block">
             <img src="/login.png" alt="Safe Flow security workspace" className="absolute inset-0 h-full w-full object-cover" />
-            <div className="absolute inset-0 bg-black/35" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,#8957e533,transparent_55%)]" />
-            <div className="absolute left-8 top-8 z-10 flex items-center gap-3">
-              <Logo size="md" rounded="lg" />
-              <div>
-                <p className="text-sm font-semibold tracking-[0.16em] text-white">Safe Flow</p>
-                <Mono className="mt-1 text-white/65">Digital Investigator</Mono>
-              </div>
-            </div>
-            <div className="absolute bottom-10 left-8 right-8 z-10 max-w-lg">
-              <p className="font-mono text-xs uppercase tracking-[0.22em] text-white/65">Secure investigation workspace</p>
-              <h1 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Investigate smarter. Decide with confidence.</h1>
-              <p className="mt-3 text-sm leading-relaxed text-white/70">AI-assisted fraud investigation, risk intelligence and compliance workflows in one secure workspace.</p>
-            </div>
+            <div className="absolute inset-0 bg-black/20" />
           </div>
           <div className="flex flex-col justify-center bg-background px-4 py-8 sm:px-6 lg:px-10 xl:px-14">
             <div className="mx-auto w-full max-w-md">
