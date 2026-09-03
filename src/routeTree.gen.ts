@@ -32,28 +32,116 @@ import { Route as DashboardUsersRouteImport } from './routes/dashboard/users'
 import { Route as DashboardCasesIndexRouteImport } from './routes/dashboard/cases/index'
 import { Route as DashboardCasesCaseIdRouteImport } from './routes/dashboard/cases/$caseId'
 
-const IndexRoute = IndexRouteImport.update({ id: '/', path: '/', getParentRoute: () => rootRouteImport } as any)
-const SignInRoute = SignInRouteImport.update({ id: '/sign-in', path: '/sign-in', getParentRoute: () => rootRouteImport } as any)
-const SignUpRoute = SignUpRouteImport.update({ id: '/sign-up', path: '/sign-up', getParentRoute: () => rootRouteImport } as any)
-const DashboardIndexRoute = DashboardIndexRouteImport.update({ id: '/dashboard/', path: '/dashboard/', getParentRoute: () => rootRouteImport } as any)
-const DashboardApprovalsRoute = DashboardApprovalsRouteImport.update({ id: '/dashboard/approvals', path: '/dashboard/approvals', getParentRoute: () => rootRouteImport } as any)
-const DashboardAuditRoute = DashboardAuditRouteImport.update({ id: '/dashboard/audit', path: '/dashboard/audit', getParentRoute: () => rootRouteImport } as any)
-const DashboardAuditLogsRoute = DashboardAuditLogsRouteImport.update({ id: '/dashboard/audit-logs', path: '/dashboard/audit-logs', getParentRoute: () => rootRouteImport } as any)
-const DashboardComplianceRoute = DashboardComplianceRouteImport.update({ id: '/dashboard/compliance', path: '/dashboard/compliance', getParentRoute: () => rootRouteImport } as any)
-const DashboardEscalationsRoute = DashboardEscalationsRouteImport.update({ id: '/dashboard/escalations', path: '/dashboard/escalations', getParentRoute: () => rootRouteImport } as any)
-const DashboardGraphRoute = DashboardGraphRouteImport.update({ id: '/dashboard/graph', path: '/dashboard/graph', getParentRoute: () => rootRouteImport } as any)
-const DashboardIntegrationsRoute = DashboardIntegrationsRouteImport.update({ id: '/dashboard/integrations', path: '/dashboard/integrations', getParentRoute: () => rootRouteImport } as any)
-const DashboardInvestigationRoute = DashboardInvestigationRouteImport.update({ id: '/dashboard/investigation', path: '/dashboard/investigation', getParentRoute: () => rootRouteImport } as any)
-const DashboardReportsRoute = DashboardReportsRouteImport.update({ id: '/dashboard/reports', path: '/dashboard/reports', getParentRoute: () => rootRouteImport } as any)
-const DashboardRiskRoute = DashboardRiskRouteImport.update({ id: '/dashboard/risk', path: '/dashboard/risk', getParentRoute: () => rootRouteImport } as any)
-const DashboardRolesRoute = DashboardRolesRouteImport.update({ id: '/dashboard/roles', path: '/dashboard/roles', getParentRoute: () => rootRouteImport } as any)
-const DashboardSecurityRoute = DashboardSecurityRouteImport.update({ id: '/dashboard/security', path: '/dashboard/security', getParentRoute: () => rootRouteImport } as any)
-const DashboardSettingsRoute = DashboardSettingsRouteImport.update({ id: '/dashboard/settings', path: '/dashboard/settings', getParentRoute: () => rootRouteImport } as any)
-const DashboardThreatRoute = DashboardThreatRouteImport.update({ id: '/dashboard/threat', path: '/dashboard/threat', getParentRoute: () => rootRouteImport } as any)
-const DashboardThreatsRoute = DashboardThreatsRouteImport.update({ id: '/dashboard/threats', path: '/dashboard/threats', getParentRoute: () => rootRouteImport } as any)
-const DashboardUsersRoute = DashboardUsersRouteImport.update({ id: '/dashboard/users', path: '/dashboard/users', getParentRoute: () => rootRouteImport } as any)
-const DashboardCasesIndexRoute = DashboardCasesIndexRouteImport.update({ id: '/dashboard/cases/', path: '/dashboard/cases/', getParentRoute: () => rootRouteImport } as any)
-const DashboardCasesCaseIdRoute = DashboardCasesCaseIdRouteImport.update({ id: '/dashboard/cases/$caseId', path: '/dashboard/cases/$caseId', getParentRoute: () => rootRouteImport } as any)
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignInRoute = SignInRouteImport.update({
+  id: '/sign-in',
+  path: '/sign-in',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignUpRoute = SignUpRouteImport.update({
+  id: '/sign-up',
+  path: '/sign-up',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardIndexRoute = DashboardIndexRouteImport.update({
+  id: '/dashboard/',
+  path: '/dashboard/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardApprovalsRoute = DashboardApprovalsRouteImport.update({
+  id: '/dashboard/approvals',
+  path: '/dashboard/approvals',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardAuditRoute = DashboardAuditRouteImport.update({
+  id: '/dashboard/audit',
+  path: '/dashboard/audit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardAuditLogsRoute = DashboardAuditLogsRouteImport.update({
+  id: '/dashboard/audit-logs',
+  path: '/dashboard/audit-logs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardComplianceRoute = DashboardComplianceRouteImport.update({
+  id: '/dashboard/compliance',
+  path: '/dashboard/compliance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardEscalationsRoute = DashboardEscalationsRouteImport.update({
+  id: '/dashboard/escalations',
+  path: '/dashboard/escalations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardGraphRoute = DashboardGraphRouteImport.update({
+  id: '/dashboard/graph',
+  path: '/dashboard/graph',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardIntegrationsRoute = DashboardIntegrationsRouteImport.update({
+  id: '/dashboard/integrations',
+  path: '/dashboard/integrations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardInvestigationRoute = DashboardInvestigationRouteImport.update({
+  id: '/dashboard/investigation',
+  path: '/dashboard/investigation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardReportsRoute = DashboardReportsRouteImport.update({
+  id: '/dashboard/reports',
+  path: '/dashboard/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRiskRoute = DashboardRiskRouteImport.update({
+  id: '/dashboard/risk',
+  path: '/dashboard/risk',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRolesRoute = DashboardRolesRouteImport.update({
+  id: '/dashboard/roles',
+  path: '/dashboard/roles',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardSecurityRoute = DashboardSecurityRouteImport.update({
+  id: '/dashboard/security',
+  path: '/dashboard/security',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardSettingsRoute = DashboardSettingsRouteImport.update({
+  id: '/dashboard/settings',
+  path: '/dashboard/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardThreatRoute = DashboardThreatRouteImport.update({
+  id: '/dashboard/threat',
+  path: '/dashboard/threat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardThreatsRoute = DashboardThreatsRouteImport.update({
+  id: '/dashboard/threats',
+  path: '/dashboard/threats',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardUsersRoute = DashboardUsersRouteImport.update({
+  id: '/dashboard/users',
+  path: '/dashboard/users',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardCasesIndexRoute = DashboardCasesIndexRouteImport.update({
+  id: '/dashboard/cases/',
+  path: '/dashboard/cases/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardCasesCaseIdRoute = DashboardCasesCaseIdRouteImport.update({
+  id: '/dashboard/cases/$caseId',
+  path: '/dashboard/cases/$caseId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -130,10 +218,77 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/sign-in' | '/sign-up' | '/dashboard/approvals' | '/dashboard/audit' | '/dashboard/audit-logs' | '/dashboard/compliance' | '/dashboard/escalations' | '/dashboard/graph' | '/dashboard/integrations' | '/dashboard/investigation' | '/dashboard/reports' | '/dashboard/risk' | '/dashboard/roles' | '/dashboard/security' | '/dashboard/settings' | '/dashboard/threat' | '/dashboard/threats' | '/dashboard/users' | '/dashboard/' | '/dashboard/cases/$caseId' | '/dashboard/cases/'
+  fullPaths:
+    | '/'
+    | '/sign-in'
+    | '/sign-up'
+    | '/dashboard/approvals'
+    | '/dashboard/audit'
+    | '/dashboard/audit-logs'
+    | '/dashboard/compliance'
+    | '/dashboard/escalations'
+    | '/dashboard/graph'
+    | '/dashboard/integrations'
+    | '/dashboard/investigation'
+    | '/dashboard/reports'
+    | '/dashboard/risk'
+    | '/dashboard/roles'
+    | '/dashboard/security'
+    | '/dashboard/settings'
+    | '/dashboard/threat'
+    | '/dashboard/threats'
+    | '/dashboard/users'
+    | '/dashboard/'
+    | '/dashboard/cases/$caseId'
+    | '/dashboard/cases/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sign-in' | '/sign-up' | '/dashboard/approvals' | '/dashboard/audit' | '/dashboard/audit-logs' | '/dashboard/compliance' | '/dashboard/escalations' | '/dashboard/graph' | '/dashboard/integrations' | '/dashboard/investigation' | '/dashboard/reports' | '/dashboard/risk' | '/dashboard/roles' | '/dashboard/security' | '/dashboard/settings' | '/dashboard/threat' | '/dashboard/threats' | '/dashboard/users' | '/dashboard' | '/dashboard/cases/$caseId' | '/dashboard/cases'
-  id: '__root__' | '/' | '/sign-in' | '/sign-up' | '/dashboard/approvals' | '/dashboard/audit' | '/dashboard/audit-logs' | '/dashboard/compliance' | '/dashboard/escalations' | '/dashboard/graph' | '/dashboard/integrations' | '/dashboard/investigation' | '/dashboard/reports' | '/dashboard/risk' | '/dashboard/roles' | '/dashboard/security' | '/dashboard/settings' | '/dashboard/threat' | '/dashboard/threats' | '/dashboard/users' | '/dashboard/' | '/dashboard/cases/$caseId' | '/dashboard/cases/'
+  to:
+    | '/'
+    | '/sign-in'
+    | '/sign-up'
+    | '/dashboard/approvals'
+    | '/dashboard/audit'
+    | '/dashboard/audit-logs'
+    | '/dashboard/compliance'
+    | '/dashboard/escalations'
+    | '/dashboard/graph'
+    | '/dashboard/integrations'
+    | '/dashboard/investigation'
+    | '/dashboard/reports'
+    | '/dashboard/risk'
+    | '/dashboard/roles'
+    | '/dashboard/security'
+    | '/dashboard/settings'
+    | '/dashboard/threat'
+    | '/dashboard/threats'
+    | '/dashboard/users'
+    | '/dashboard'
+    | '/dashboard/cases/$caseId'
+    | '/dashboard/cases'
+  id:
+    | '__root__'
+    | '/'
+    | '/sign-in'
+    | '/sign-up'
+    | '/dashboard/approvals'
+    | '/dashboard/audit'
+    | '/dashboard/audit-logs'
+    | '/dashboard/compliance'
+    | '/dashboard/escalations'
+    | '/dashboard/graph'
+    | '/dashboard/integrations'
+    | '/dashboard/investigation'
+    | '/dashboard/reports'
+    | '/dashboard/risk'
+    | '/dashboard/roles'
+    | '/dashboard/security'
+    | '/dashboard/settings'
+    | '/dashboard/threat'
+    | '/dashboard/threats'
+    | '/dashboard/users'
+    | '/dashboard/'
+    | '/dashboard/cases/$caseId'
+    | '/dashboard/cases/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -163,28 +318,160 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': { id: '/'; path: '/'; fullPath: '/'; preLoaderRoute: typeof IndexRouteImport; parentRoute: typeof rootRouteImport }
-    '/sign-in': { id: '/sign-in'; path: '/sign-in'; fullPath: '/sign-in'; preLoaderRoute: typeof SignInRouteImport; parentRoute: typeof rootRouteImport }
-    '/sign-up': { id: '/sign-up'; path: '/sign-up'; fullPath: '/sign-up'; preLoaderRoute: typeof SignUpRouteImport; parentRoute: typeof rootRouteImport }
-    '/dashboard/': { id: '/dashboard/'; path: '/dashboard'; fullPath: '/dashboard/'; preLoaderRoute: typeof DashboardIndexRouteImport; parentRoute: typeof rootRouteImport }
-    '/dashboard/approvals': { id: '/dashboard/approvals'; path: '/dashboard/approvals'; fullPath: '/dashboard/approvals'; preLoaderRoute: typeof DashboardApprovalsRouteImport; parentRoute: typeof rootRouteImport }
-    '/dashboard/audit': { id: '/dashboard/audit'; path: '/dashboard/audit'; fullPath: '/dashboard/audit'; preLoaderRoute: typeof DashboardAuditRouteImport; parentRoute: typeof rootRouteImport }
-    '/dashboard/audit-logs': { id: '/dashboard/audit-logs'; path: '/dashboard/audit-logs'; fullPath: '/dashboard/audit-logs'; preLoaderRoute: typeof DashboardAuditLogsRouteImport; parentRoute: typeof rootRouteImport }
-    '/dashboard/compliance': { id: '/dashboard/compliance'; path: '/dashboard/compliance'; fullPath: '/dashboard/compliance'; preLoaderRoute: typeof DashboardComplianceRouteImport; parentRoute: typeof rootRouteImport }
-    '/dashboard/escalations': { id: '/dashboard/escalations'; path: '/dashboard/escalations'; fullPath: '/dashboard/escalations'; preLoaderRoute: typeof DashboardEscalationsRouteImport; parentRoute: typeof rootRouteImport }
-    '/dashboard/graph': { id: '/dashboard/graph'; path: '/dashboard/graph'; fullPath: '/dashboard/graph'; preLoaderRoute: typeof DashboardGraphRouteImport; parentRoute: typeof rootRouteImport }
-    '/dashboard/integrations': { id: '/dashboard/integrations'; path: '/dashboard/integrations'; fullPath: '/dashboard/integrations'; preLoaderRoute: typeof DashboardIntegrationsRouteImport; parentRoute: typeof rootRouteImport }
-    '/dashboard/investigation': { id: '/dashboard/investigation'; path: '/dashboard/investigation'; fullPath: '/dashboard/investigation'; preLoaderRoute: typeof DashboardInvestigationRouteImport; parentRoute: typeof rootRouteImport }
-    '/dashboard/reports': { id: '/dashboard/reports'; path: '/dashboard/reports'; fullPath: '/dashboard/reports'; preLoaderRoute: typeof DashboardReportsRouteImport; parentRoute: typeof rootRouteImport }
-    '/dashboard/risk': { id: '/dashboard/risk'; path: '/dashboard/risk'; fullPath: '/dashboard/risk'; preLoaderRoute: typeof DashboardRiskRouteImport; parentRoute: typeof rootRouteImport }
-    '/dashboard/roles': { id: '/dashboard/roles'; path: '/dashboard/roles'; fullPath: '/dashboard/roles'; preLoaderRoute: typeof DashboardRolesRouteImport; parentRoute: typeof rootRouteImport }
-    '/dashboard/security': { id: '/dashboard/security'; path: '/dashboard/security'; fullPath: '/dashboard/security'; preLoaderRoute: typeof DashboardSecurityRouteImport; parentRoute: typeof rootRouteImport }
-    '/dashboard/settings': { id: '/dashboard/settings'; path: '/dashboard/settings'; fullPath: '/dashboard/settings'; preLoaderRoute: typeof DashboardSettingsRouteImport; parentRoute: typeof rootRouteImport }
-    '/dashboard/threat': { id: '/dashboard/threat'; path: '/dashboard/threat'; fullPath: '/dashboard/threat'; preLoaderRoute: typeof DashboardThreatRouteImport; parentRoute: typeof rootRouteImport }
-    '/dashboard/threats': { id: '/dashboard/threats'; path: '/dashboard/threats'; fullPath: '/dashboard/threats'; preLoaderRoute: typeof DashboardThreatsRouteImport; parentRoute: typeof rootRouteImport }
-    '/dashboard/users': { id: '/dashboard/users'; path: '/dashboard/users'; fullPath: '/dashboard/users'; preLoaderRoute: typeof DashboardUsersRouteImport; parentRoute: typeof rootRouteImport }
-    '/dashboard/cases/': { id: '/dashboard/cases/'; path: '/dashboard/cases'; fullPath: '/dashboard/cases/'; preLoaderRoute: typeof DashboardCasesIndexRouteImport; parentRoute: typeof rootRouteImport }
-    '/dashboard/cases/$caseId': { id: '/dashboard/cases/$caseId'; path: '/dashboard/cases/$caseId'; fullPath: '/dashboard/cases/$caseId'; preLoaderRoute: typeof DashboardCasesCaseIdRouteImport; parentRoute: typeof rootRouteImport }
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sign-in': {
+      id: '/sign-in'
+      path: '/sign-in'
+      fullPath: '/sign-in'
+      preLoaderRoute: typeof SignInRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sign-up': {
+      id: '/sign-up'
+      path: '/sign-up'
+      fullPath: '/sign-up'
+      preLoaderRoute: typeof SignUpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/': {
+      id: '/dashboard/'
+      path: '/dashboard'
+      fullPath: '/dashboard/'
+      preLoaderRoute: typeof DashboardIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/approvals': {
+      id: '/dashboard/approvals'
+      path: '/dashboard/approvals'
+      fullPath: '/dashboard/approvals'
+      preLoaderRoute: typeof DashboardApprovalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/audit': {
+      id: '/dashboard/audit'
+      path: '/dashboard/audit'
+      fullPath: '/dashboard/audit'
+      preLoaderRoute: typeof DashboardAuditRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/audit-logs': {
+      id: '/dashboard/audit-logs'
+      path: '/dashboard/audit-logs'
+      fullPath: '/dashboard/audit-logs'
+      preLoaderRoute: typeof DashboardAuditLogsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/compliance': {
+      id: '/dashboard/compliance'
+      path: '/dashboard/compliance'
+      fullPath: '/dashboard/compliance'
+      preLoaderRoute: typeof DashboardComplianceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/escalations': {
+      id: '/dashboard/escalations'
+      path: '/dashboard/escalations'
+      fullPath: '/dashboard/escalations'
+      preLoaderRoute: typeof DashboardEscalationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/graph': {
+      id: '/dashboard/graph'
+      path: '/dashboard/graph'
+      fullPath: '/dashboard/graph'
+      preLoaderRoute: typeof DashboardGraphRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/integrations': {
+      id: '/dashboard/integrations'
+      path: '/dashboard/integrations'
+      fullPath: '/dashboard/integrations'
+      preLoaderRoute: typeof DashboardIntegrationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/investigation': {
+      id: '/dashboard/investigation'
+      path: '/dashboard/investigation'
+      fullPath: '/dashboard/investigation'
+      preLoaderRoute: typeof DashboardInvestigationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/reports': {
+      id: '/dashboard/reports'
+      path: '/dashboard/reports'
+      fullPath: '/dashboard/reports'
+      preLoaderRoute: typeof DashboardReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/risk': {
+      id: '/dashboard/risk'
+      path: '/dashboard/risk'
+      fullPath: '/dashboard/risk'
+      preLoaderRoute: typeof DashboardRiskRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/roles': {
+      id: '/dashboard/roles'
+      path: '/dashboard/roles'
+      fullPath: '/dashboard/roles'
+      preLoaderRoute: typeof DashboardRolesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/security': {
+      id: '/dashboard/security'
+      path: '/dashboard/security'
+      fullPath: '/dashboard/security'
+      preLoaderRoute: typeof DashboardSecurityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/settings': {
+      id: '/dashboard/settings'
+      path: '/dashboard/settings'
+      fullPath: '/dashboard/settings'
+      preLoaderRoute: typeof DashboardSettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/threat': {
+      id: '/dashboard/threat'
+      path: '/dashboard/threat'
+      fullPath: '/dashboard/threat'
+      preLoaderRoute: typeof DashboardThreatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/threats': {
+      id: '/dashboard/threats'
+      path: '/dashboard/threats'
+      fullPath: '/dashboard/threats'
+      preLoaderRoute: typeof DashboardThreatsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/users': {
+      id: '/dashboard/users'
+      path: '/dashboard/users'
+      fullPath: '/dashboard/users'
+      preLoaderRoute: typeof DashboardUsersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/cases/': {
+      id: '/dashboard/cases/'
+      path: '/dashboard/cases'
+      fullPath: '/dashboard/cases/'
+      preLoaderRoute: typeof DashboardCasesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/cases/$caseId': {
+      id: '/dashboard/cases/$caseId'
+      path: '/dashboard/cases/$caseId'
+      fullPath: '/dashboard/cases/$caseId'
+      preLoaderRoute: typeof DashboardCasesCaseIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -212,7 +499,9 @@ const rootRouteChildren: RootRouteChildren = {
   DashboardCasesCaseIdRoute: DashboardCasesCaseIdRoute,
   DashboardCasesIndexRoute: DashboardCasesIndexRoute,
 }
-export const routeTree = rootRouteImport._addFileChildren(rootRouteChildren)._addFileTypes<FileRouteTypes>()
+export const routeTree = rootRouteImport
+  ._addFileChildren(rootRouteChildren)
+  ._addFileTypes<FileRouteTypes>()
 
 import type { getRouter } from './router.tsx'
 import type { startInstance } from './start.ts'
