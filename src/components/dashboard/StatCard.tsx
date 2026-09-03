@@ -5,29 +5,28 @@ export interface StatCardProps {
   value: string | number;
   unit?: string;
   icon?: React.ReactNode;
-  trend?: {
-    direction: "up" | "down";
-    value: number;
-  };
+  trend?: { direction: "up" | "down"; value: number };
   className?: string;
 }
 
-export function StatCard({ label, value, unit, trend, className }: StatCardProps) {
+export function StatCard({ label, value, unit, icon, trend, className }: StatCardProps) {
   return (
-    <div
-      className={cn(
-        "rounded-md border border-border bg-card p-4 sm:p-5 transition-colors hover:border-primary/40",
-        className,
-      )}
-    >
-      <p className="text-xs font-medium text-muted-foreground">{label}</p>
+    <div className={cn("rounded-md border border-border bg-card p-4 sm:p-5 transition-colors hover:border-primary/40", className)}>
+      <div className="flex items-start justify-between gap-3">
+        <p className="text-xs font-medium text-muted-foreground">{label}</p>
+        {icon ? (
+          <span className="flex size-8 shrink-0 items-center justify-center rounded-md border border-border bg-muted/50 text-primary" aria-hidden="true">
+            {icon}
+          </span>
+        ) : null}
+      </div>
       <div className="mt-2 flex items-baseline gap-1.5">
         <p className="text-2xl font-semibold tracking-tight text-foreground">{value}</p>
         {unit && <span className="text-xs text-muted-foreground">{unit}</span>}
       </div>
       {trend && (
         <div className="mt-2 flex items-center gap-1.5 text-xs">
-          <span className="font-medium text-primary">
+          <span className={cn("font-medium", trend.direction === "up" ? "text-risk-high" : "text-risk-low")}>
             {trend.direction === "up" ? "↑" : "↓"} {trend.value}%
           </span>
           <span className="text-muted-foreground">vs last period</span>
