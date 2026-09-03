@@ -1,3 +1,67 @@
+.gov-dashboard {
+  background: #0f0a16;
+  color: #ffffff;
+}
+
+/* Government workstation surfaces: dark, flat and information-dense. */
+.gov-dashboard .bg-card,
+.gov-dashboard .bg-background {
+  background-color: #171021;
+}
+
+.gov-dashboard .bg-muted,
+.gov-dashboard .bg-muted\/30,
+.gov-dashboard .bg-muted\/40,
+.gov-dashboard .bg-muted\/50 {
+  background-color: #21172c;
+}
+
+.gov-dashboard .border-border {
+  border-color: #382942;
+}
+
+.gov-dashboard .text-foreground {
+  color: #ffffff;
+}
+
+.gov-dashboard .text-muted-foreground {
+  color: #c9bfd1;
+}
+
+.gov-dashboard .text-primary,
+.gov-dashboard .text-violet {
+  color: #8f6aa8;
+}
+
+.gov-dashboard .bg-primary,
+.gov-dashboard .bg-violet {
+  background-color: #4e1f6e;
+  color: #ffffff;
+}
+
+.gov-dashboard .bg-teal {
+  background-color: #4c4b9a;
+  color: #ffffff;
+}
+
+.gov-dashboard .text-teal {
+  color: #8d8bd0;
+}
+
+.gov-dashboard .ring-violet,
+.gov-dashboard .ring-primary {
+  --tw-ring-color: #4c4b9a;
+}
+
+/* Thin institutional dividers instead of decorative cards. */
+.gov-dashboard .border,
+.gov-dashboard .border-b,
+.gov-dashboard .border-t,
+.gov-dashboard .border-l,
+.gov-dashboard .border-r {
+  border-color: #382942;
+}
+
 .gov-dashboard .rounded-full {
   border-radius: 999px;
 }
@@ -33,11 +97,33 @@
   transition-duration: 120ms;
 }
 
+.gov-dashboard button:hover,
+.gov-dashboard a:hover {
+  filter: brightness(1.08);
+}
+
 .gov-dashboard .border-l-2 {
   border-left-width: 3px;
+  border-left-color: #4c4b9a;
 }
 
 .gov-dashboard table th {
   font-family: var(--font-sans);
   letter-spacing: 0.02em;
+  color: #c9bfd1;
+}
+
+.gov-dashboard table tbody tr:hover {
+  background-color: #21172c;
+}
+
+/* Clear hierarchy for government status labels. */
+.gov-dashboard .text-risk-high,
+.gov-dashboard .text-risk-critical {
+  color: #b88ad2 !important;
+}
+
+.gov-dashboard .bg-risk-high\/10,
+.gov-dashboard .bg-risk-critical\/10 {
+  background-color: #4e1f6e33;
 }
