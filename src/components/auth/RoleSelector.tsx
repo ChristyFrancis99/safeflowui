@@ -4,7 +4,6 @@ import { cn } from "@/lib/utils";
 export interface RoleSelectorProps {
   selectedRole: RoleId;
   onRoleSelect: (roleId: RoleId) => void;
-  onContinue?: () => void;
 }
 
 export const roleOptions = [
@@ -14,7 +13,6 @@ export const roleOptions = [
     description: "Fraud / AML Analyst",
     purpose: "Investigate suspicious cases, evidence, risk and AI analysis.",
     icon: ShieldCheck,
-    theme: "investigator",
   },
   {
     id: "manager",
@@ -22,7 +20,6 @@ export const roleOptions = [
     description: "AML / Compliance Manager",
     purpose: "Review investigations, approve recommendations, manage escalations and reports.",
     icon: FileText,
-    theme: "manager",
   },
   {
     id: "administrator",
@@ -30,19 +27,18 @@ export const roleOptions = [
     description: "Bank IT / Security Administrator",
     purpose: "Manage users, roles, integrations and platform security.",
     icon: Lock,
-    theme: "administrator",
   },
 ] as const;
 
 export type RoleId = (typeof roleOptions)[number]["id"];
 
-export function RoleSelector({ selectedRole, onRoleSelect, onContinue }: RoleSelectorProps) {
+export function RoleSelector({ selectedRole, onRoleSelect }: RoleSelectorProps) {
   return (
     <div className="space-y-4">
       <div className="space-y-2">
         <h3 className="text-sm font-semibold tracking-tight text-foreground">Select your role</h3>
         <p className="text-xs leading-relaxed text-muted-foreground">
-          Choose the role that matches your position to access relevant tools and data.
+          Choose your role before signing in.
         </p>
       </div>
 
@@ -57,69 +53,36 @@ export function RoleSelector({ selectedRole, onRoleSelect, onContinue }: RoleSel
               type="button"
               onClick={() => onRoleSelect(role.id)}
               className={cn(
-                "group relative rounded-2xl border px-4 py-4 text-left transition-all duration-200",
-                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
-                "focus-visible:ring-violet focus-visible:ring-offset-background",
+                "group flex w-full items-center gap-3 rounded-xl border px-4 py-3.5 text-left transition-all duration-200",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet focus-visible:ring-offset-2",
                 isSelected
-                  ? "border-violet/35 bg-violet/8 ring-2 ring-violet/20"
-                  : "border-border bg-background hover:border-violet/20 hover:bg-violet/5",
+                  ? "border-violet bg-violet/10 ring-2 ring-violet/20"
+                  : "border-border bg-background hover:border-violet/50 hover:bg-violet/5",
               )}
               aria-pressed={isSelected}
-              aria-label={`Select ${role.label} role`}
+              aria-label={`Select ${role.label}`}
             >
-              <div className="flex items-start justify-between gap-3">
-                <div className="flex items-start gap-3 flex-1">
-                  <div
-                    className={cn(
-                      "mt-0.5 flex size-8 items-center justify-center rounded-lg transition-colors duration-200",
-                      isSelected
-                        ? "bg-violet/25 text-violet"
-                        : "bg-deep/30 text-gov group-hover:bg-violet/15 group-hover:text-violet",
-                    )}
-                    aria-hidden
-                  >
-                    <Icon className="size-4" />
-                  </div>
-
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2">
-                      <p className="text-sm font-semibold text-foreground">{role.label}</p>
-                      <span className="rounded-md bg-muted px-2 py-0.5 text-xs font-medium text-muted-foreground tracking-[0.08em]">
-                        {role.description}
-                      </span>
-                    </div>
-                    <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{role.purpose}</p>
-                  </div>
-                </div>
-
-                {isSelected && (
-                  <div
-                    className="flex size-5 items-center justify-center rounded-full bg-violet text-white flex-shrink-0"
-                    aria-hidden
-                  >
-                    <CheckCircle2 className="size-4" />
-                  </div>
+              <div
+                className={cn(
+                  "flex size-9 shrink-0 items-center justify-center rounded-lg",
+                  isSelected ? "bg-violet text-white" : "bg-muted text-muted-foreground group-hover:text-violet",
                 )}
+              >
+                <Icon className="size-4" aria-hidden />
               </div>
+
+              <div className="min-w-0 flex-1">
+                <p className="text-sm font-semibold text-foreground">{role.label}</p>
+                <p className="mt-0.5 text-xs text-muted-foreground">{role.description}</p>
+              </div>
+
+              {isSelected && (
+                <CheckCircle2 className="size-5 shrink-0 text-violet" aria-hidden />
+              )}
             </button>
           );
         })}
       </div>
-
-      {onContinue && (
-        <button
-          onClick={onContinue}
-          className={cn(
-            "w-full rounded-xl px-4 py-3 font-medium text-sm transition-colors duration-200",
-            "bg-violet text-white hover:bg-violet/90",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
-            "focus-visible:ring-violet focus-visible:ring-offset-background",
-            "disabled:opacity-50 disabled:cursor-not-allowed",
-          )}
-        >
-          Continue as {selectedRole.charAt(0).toUpperCase() + selectedRole.slice(1)}
-        </button>
-      )}
     </div>
   );
 }
